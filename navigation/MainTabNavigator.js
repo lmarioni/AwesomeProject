@@ -8,8 +8,7 @@ import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen2,
-  Details: lol,
+  Home: HomeScreen,
 });
 
 HomeStack.navigationOptions = {
