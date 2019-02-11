@@ -1,23 +1,81 @@
 import React from 'react';
-import { Button,Platform, View, AsyncStorage, StatusBar,StyleSheet } from 'react-native';
+import { 
+  ActivityIndicator,
+  AsyncStorage,
+  Platform,
+  Button,
+  StyleSheet,
+  View,
+  Text,
+  TextInput,
+} from 'react-native';
 
 export default class SignInScreen extends React.Component {
+  constructor(){
+    super()
+    this.state = {
+      animating: false,
+      login: false,
+      errorText: null,
+      email: null
+    }
+  }
+
     static navigationOptions = {
       title: 'Please sign in',
     };
   
     render() {
-      return (
-        <View style={styles.container}>
-          <Button title="Sign in!" onPress={this._signInAsync} />
-        </View>
-      );
+        return (
+      <View>
+        <TextInput
+        style={{height: 40, borderColor: 'gray', borderWidth: 1,margin:10,paddingLeft:10}}
+        onChangeText={(email) => this.setState({email})}
+        placeholder= 'Ingrese un email'
+        value={this.state.email}
+      />
+
+
+        <Button title="Sign in!" onPress={this._loguearse} />
+            <ActivityIndicator
+               animating = {this.state.animating}
+               color = '#bc2b78'
+               size = "large"
+                />
+            <Text style={{textAlign: 'center',color:'red'}}> {this.state.errorText} </Text>
+      </View>
+    );
     }
   
-    _signInAsync = async () => {
-      await AsyncStorage.setItem('userToken', 'abc');
-      this.props.navigation.navigate('App');
-    };
+    _loguearse = async () => {
+      this.setState({animating:true})
+
+     await fetch('http://api.axontraining.com.ar/usuarios/search?email='+this.state.email)
+        .then((response) => response.json())
+        .then((responseJson) => {
+            
+            //console.log(Object.keys(responseJson).length);
+            if(Object.keys(responseJson).length === 1){
+               this.setState({
+                   login: true
+                   })
+                   AsyncStorage.setItem('userId', responseJson[0].id);
+            }else{
+              this.setState({
+                 login:false,
+                 errorText: 'No existe el usuario',
+                 animating: false
+              })
+            }
+        });
+        if(this.state.login){
+           await AsyncStorage.setItem('userToken', 'abc');
+            this.props.navigation.navigate('App');
+        }else{
+            console.log(this.state.errorText);
+        }
+        
+  };
   }
   const styles = StyleSheet.create({
     container: {

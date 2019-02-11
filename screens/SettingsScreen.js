@@ -1,14 +1,48 @@
 import React from 'react';
+import { Button, Text, View, StyleSheet,  ActivityIndicator, AsyncStorage, StatusBar } from 'react-native';
 import { ExpoConfigView } from '@expo/samples';
 
 export default class SettingsScreen extends React.Component {
+
+  constructor() {
+    super();
+    this._getVar();
+    this.state = {
+      nombre: null,
+      apellido: null,
+      animating:true,
+    }
+  }
+
   static navigationOptions = {
-    title: 'app.json',
+    title: 'Perfil',
   };
 
+  
+
   render() {
-    /* Go ahead and delete ExpoConfigView and replace it with your
-     * content, we just wanted to give you a quick view of your config */
-    return <ExpoConfigView />;
+    return (
+      <View>
+        <Text style={{fontSize:40,textAlign:'center',}}>
+          {this.state.nombre} {this.state.apellido}
+        </Text>
+      </View>
+    );
   }
+
+  _getVar = async () => {
+    const userId = await AsyncStorage.getItem('userId');
+    
+    await fetch('http://api.axontraining.com.ar/usuario/'+userId)
+        .then((response) => response.json())
+        .then((responseJson) => {
+           // console.log(responseJson.apellido);
+           this.setState({
+             animating: false,
+             nombre: responseJson.nombre,
+             apellido: responseJson.apellido,
+           })
+        });
+
+  };
 }
