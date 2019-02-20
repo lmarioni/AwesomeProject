@@ -3,58 +3,75 @@ import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 
 import TabBarIcon from '../components/TabBarIcon';
-import HomeScreen from '../screens/HomeScreen';
-import LinksScreen from '../screens/LinksScreen';
-import SettingsScreen from '../screens/SettingsScreen';
+import EstudiarScreen from '../screens/estudiar/EstudiarScreen';
+import LeccionScreen from '../screens/estudiar/LeccionScreen';
+import CalendarioScreen from '../screens/calendario/CalendarioScreen';
+import ProfileScreen from '../screens/profile/ProfileScreen';
+import ClaseScreen from '../screens/calendario/ClaseScreen';
 
 const HomeStack = createStackNavigator({
-  Home: HomeScreen,
+  Estudiar: EstudiarScreen,
+  Leccion: LeccionScreen,
 });
 
+// HomeStack.navigationOptions = {
+//   tabBarLabel: 'Home',
+//   tabBarIcon: ({ focused }) => (
+//     <TabBarIcon
+//       focused={focused}
+//       name={
+//         Platform.OS === 'ios'
+//           ? `ios-information-circle${focused ? '' : '-outline'}`
+//           : 'md-information-circle'
+//       }
+//     />
+//   ),
+// };
+
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Home',
+  tabBarLabel: 'Estudiar',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
         Platform.OS === 'ios'
-          ? `ios-information-circle${focused ? '' : '-outline'}`
+          ? 'ios-book'
           : 'md-information-circle'
       }
     />
   ),
-};
-
-const LinksStack = createStackNavigator({
-  Links: LinksScreen,
+    };
+const CalendarioStack = createStackNavigator({
+  Calendario: CalendarioScreen,
+  Clase: ClaseScreen,
 });
 
-LinksStack.navigationOptions = {
-  tabBarLabel: 'Links',
+CalendarioStack.navigationOptions = {
+  tabBarLabel: 'Calendario',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-link' : 'md-link'}
+      name={Platform.OS === 'ios' ? 'ios-easel' : 'md-link'}
     />
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: SettingsScreen,
+const ProfileStack = createStackNavigator({
+  Profile: ProfileScreen,
 });
 
-SettingsStack.navigationOptions = {
-  tabBarLabel: 'Settings',
+ProfileStack.navigationOptions = {
+  tabBarLabel: 'Perfil',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
-      name={Platform.OS === 'ios' ? 'ios-options' : 'md-options'}
+      name={Platform.OS === 'ios' ? 'ios-person' : 'md-options'}
     />
   ),
 };
 
 export default createBottomTabNavigator({
   HomeStack,
-  LinksStack,
-  SettingsStack,
+  CalendarioStack,
+  ProfileStack,
 });
