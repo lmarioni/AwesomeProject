@@ -5617,6 +5617,11 @@ react-native-gesture-handler@~1.0.14:
     invariant "^2.2.2"
     prop-types "^15.5.10"
 
+react-native-iphone-x-helper@^1.0.2:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/react-native-iphone-x-helper/-/react-native-iphone-x-helper-1.2.0.tgz#9f8a376eb00bc712115abff4420318a0063fa796"
+  integrity sha512-xIeTo4s77wwKgBZLVRIZC9tM9/PkXS46Ul76NXmvmixEb3ZwqGdQesR3zRiLMOoIdfOURB6N9bba9po7+x9Bag==
+
 react-native-maps@expo/react-native-maps#v0.22.1-exp.0:
   version "0.22.1"
   resolved "https://codeload.github.com/expo/react-native-maps/tar.gz/e6f98ff7272e5d0a7fe974a41f28593af2d77bb2"
@@ -5637,6 +5642,13 @@ react-native-reanimated@1.0.0-alpha.11:
   version "1.0.0-alpha.11"
   resolved "https://registry.yarnpkg.com/react-native-reanimated/-/react-native-reanimated-1.0.0-alpha.11.tgz#b78c839bae878d149561b56a3c750414957ea86d"
   integrity sha512-lDakjY8CXmZiSN71hyc276b3d7M9mKV9ZyYw4W/rTnnJbgBFaqdIxSHq4S4LxSbVqpAoQMfUJqPTE0BKbAz7Aw==
+
+react-native-responsive-fontsize@^0.1.8:
+  version "0.1.8"
+  resolved "https://registry.yarnpkg.com/react-native-responsive-fontsize/-/react-native-responsive-fontsize-0.1.8.tgz#3002ffded228e47ed607d760590ef1676b0a5440"
+  integrity sha512-4bWxWLRZAXBXIQM/lcMt271arlxOiae8cGdiq/c54xpwsu0swvK3WJEw71oUxAT4u+TL47BHh3U7yxkGGsOEZQ==
+  dependencies:
+    react-native-iphone-x-helper "^1.0.2"
 
 react-native-safe-area-view@^0.12.0:
   version "0.12.0"

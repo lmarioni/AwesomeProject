@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { Text,View, StyleSheet,WebView } from 'react-native';
 import Carousel from "react-native-carousel-control";
 import T1 from "./components/lecciones/enemigos/tarjetas/T1";
-// import T2 from "./components/lecciones/enemigos/tarjetas/T2";
-// import T3 from "./components/lecciones/enemigos/tarjetas/T3";
+import T2 from "./components/lecciones/enemigos/tarjetas/T2";
+import T3 from "./components/lecciones/enemigos/tarjetas/T3";
 // import T4 from "./components/lecciones/enemigos/tarjetas/T4";
 import * as Progress from 'react-native-progress';
 import { ScrollView } from 'react-native-gesture-handler';
@@ -52,13 +52,9 @@ export default class LeccionScreen extends Component {
                   
                     <T1 />
                  
-                  <View style={styles.slide}>
-                      <Text style={styles.title}> Soy un contenido  2 </Text>
-                  </View>
+                    <T2 />
 
-                  <View style={styles.slide}>
-                      <Text style={styles.title}> Soy un contenido  3 </Text>
-                  </View>
+                    <T3 />
                   
                   <View style={styles.slide}>
                       <Text style={styles.title}> Soy un contenido 4 </Text>

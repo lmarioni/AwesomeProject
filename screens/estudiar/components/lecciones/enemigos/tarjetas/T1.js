@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import RF from "react-native-responsive-fontsize";
 import {
     ScrollView,
     StyleSheet,
@@ -42,17 +43,17 @@ const styles = StyleSheet.create({
       alignSelf: "stretch",
   },
   title: {
-    fontSize: 35,
+    fontSize: RF(5),
     textAlign: 'center',
     marginBottom: 20,
   },
   subTittle: {
-    fontSize: 25,
+    fontSize: RF(3.7),
     textAlign: 'center',
   },
   texto: {
     marginTop:10,
-    fontSize: 20,
+    fontSize: RF(3),
     textAlign: 'center',
     fontWeight: '100',
   }
