@@ -8,11 +8,7 @@ import {
 } from 'react-native';
 
 import LoadingEstudiar from './components/LoadingEstudiar';
-
 import Leccion from './components/Leccion';
-
-import { MonoText } from '../../components/StyledText';
-
 export default class HomeScreen extends React.Component {
 
   constructor() {
