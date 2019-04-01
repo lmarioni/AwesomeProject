@@ -14,20 +14,6 @@ const HomeStack = createStackNavigator({
   Leccion: LeccionScreen,
 });
 
-// HomeStack.navigationOptions = {
-//   tabBarLabel: 'Home',
-//   tabBarIcon: ({ focused }) => (
-//     <TabBarIcon
-//       focused={focused}
-//       name={
-//         Platform.OS === 'ios'
-//           ? `ios-information-circle${focused ? '' : '-outline'}`
-//           : 'md-information-circle'
-//       }
-//     />
-//   ),
-// };
-
 HomeStack.navigationOptions = {
   tabBarLabel: 'Estudiar',
   tabBarIcon: ({ focused }) => (
