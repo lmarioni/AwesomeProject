@@ -9,6 +9,7 @@ import {
 
 import LoadingEstudiar from './components/LoadingEstudiar';
 import Leccion from './components/Leccion';
+// import console = require('console');
 export default class HomeScreen extends React.Component {
 
   constructor() {
@@ -21,16 +22,16 @@ export default class HomeScreen extends React.Component {
   }
   componentDidMount(){
 
-    fetch('http://api.axontraining.com.ar/lecciones')
+    fetch('http://api.axontraining.com/lecciones')
     .then((response) => response.json())
     .then((responseJson) => {
       // this.setTimeout(() => {
+        // console.log(responseJson);
         this.setState({
           data: responseJson,
           animating: true
         })
       // }, 5);
-      
     })
 
   }
