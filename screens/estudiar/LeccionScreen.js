@@ -12,6 +12,7 @@ export default class LeccionScreen extends Component {
   render() {
     return (
       <React.Fragment>
+        <ScrollView contentContainerStyle={styles.contentContainer}>
       <TouchableHighlight 
       style={styles.item}
       underlayColor = '#d8d8d8' 
@@ -25,7 +26,7 @@ export default class LeccionScreen extends Component {
                   style={{width: 50, height: 50,borderRadius:25}}
                   source={{uri: imagen}}
                 />      */}
-                <Text style={styles.itemText}>1 Contenido teorico 1 </Text> 
+                <Text style={styles.itemText}>1.1- Introducción</Text> 
           </View>
       </TouchableHighlight>
 
@@ -42,7 +43,7 @@ export default class LeccionScreen extends Component {
                   style={{width: 50, height: 50,borderRadius:25}}
                   source={{uri: imagen}}
                 />      */}
-                <Text style={styles.itemText}>1 Contenido teorico 2 </Text> 
+                <Text style={styles.itemText}>1.2 ¿Qué es el Aprendizaje?</Text> 
           </View>
       </TouchableHighlight>
 
@@ -59,10 +60,130 @@ export default class LeccionScreen extends Component {
                   style={{width: 50, height: 50,borderRadius:25}}
                   source={{uri: imagen}}
                 />      */}
-                <Text style={styles.itemText}>1 Contenido teorico 3 </Text> 
+                <Text style={styles.itemText}>1.3.- Re-aprendiendo a relacionarnos</Text> 
           </View>
       </TouchableHighlight>
 
+      <TouchableHighlight 
+      style={styles.item}
+      underlayColor = '#d8d8d8' 
+      onPress= {() => this.props.navigation.navigate('Teorico4Screen',{
+        // leccionId: item.id,
+        // leccionNombre: item.nombre,
+      })}
+      >
+          <View style={styles.contenido}>
+                {/* <Image
+                  style={{width: 50, height: 50,borderRadius:25}}
+                  source={{uri: imagen}}
+                />      */}
+                <Text style={styles.itemText}>1.4.- Enemigos del Aprendizaje</Text> 
+          </View>
+      </TouchableHighlight>
+
+      <TouchableHighlight 
+      style={styles.item}
+      underlayColor = '#d8d8d8' 
+      onPress= {() => this.props.navigation.navigate('Teorico5Screen',{
+        // leccionId: item.id,
+        // leccionNombre: item.nombre,
+      })}
+      >
+          <View style={styles.contenido}>
+                {/* <Image
+                  style={{width: 50, height: 50,borderRadius:25}}
+                  source={{uri: imagen}}
+                />      */}
+                <Text style={styles.itemText}>1.5.- Descubriendo oportunidades</Text> 
+          </View>
+      </TouchableHighlight>
+
+      <TouchableHighlight 
+      style={styles.item}
+      underlayColor = '#d8d8d8' 
+      onPress= {() => this.props.navigation.navigate('Teorico6Screen',{
+        // leccionId: item.id,
+        // leccionNombre: item.nombre,
+      })}
+      >
+          <View style={styles.contenido}>
+                {/* <Image
+                  style={{width: 50, height: 50,borderRadius:25}}
+                  source={{uri: imagen}}
+                />      */}
+                <Text style={styles.itemText}>1.6.- La propia imagen</Text> 
+          </View>
+      </TouchableHighlight>
+
+      <TouchableHighlight 
+      style={styles.item}
+      underlayColor = '#d8d8d8' 
+      onPress= {() => this.props.navigation.navigate('Teorico7Screen',{
+        // leccionId: item.id,
+        // leccionNombre: item.nombre,
+      })}
+      >
+          <View style={styles.contenido}>
+                {/* <Image
+                  style={{width: 50, height: 50,borderRadius:25}}
+                  source={{uri: imagen}}
+                />      */}
+                <Text style={styles.itemText}>1.7.- Conociendo nuestra capacidad</Text> 
+          </View>
+      </TouchableHighlight>
+
+      <TouchableHighlight 
+      style={styles.item}
+      underlayColor = '#d8d8d8' 
+      onPress= {() => this.props.navigation.navigate('Teorico8Screen',{
+        // leccionId: item.id,
+        // leccionNombre: item.nombre,
+      })}
+      >
+          <View style={styles.contenido}>
+                {/* <Image
+                  style={{width: 50, height: 50,borderRadius:25}}
+                  source={{uri: imagen}}
+                />      */}
+                <Text style={styles.itemText}>1.8.- Principales enemigos del aprendizaje</Text> 
+          </View>
+      </TouchableHighlight>
+
+      <TouchableHighlight 
+      style={styles.item}
+      underlayColor = '#d8d8d8' 
+      onPress= {() => this.props.navigation.navigate('Teorico9Screen',{
+        // leccionId: item.id,
+        // leccionNombre: item.nombre,
+      })}
+      >
+          <View style={styles.contenido}>
+                {/* <Image
+                  style={{width: 50, height: 50,borderRadius:25}}
+                  source={{uri: imagen}}
+                />      */}
+                <Text style={styles.itemText}>1.9.- Reflexión sobre el tiempo</Text> 
+          </View>
+      </TouchableHighlight>
+
+      <TouchableHighlight 
+      style={styles.item}
+      underlayColor = '#d8d8d8' 
+      onPress= {() => this.props.navigation.navigate('Teorico10Screen',{
+        // leccionId: item.id,
+        // leccionNombre: item.nombre,
+      })}
+      >
+          <View style={styles.contenido}>
+                {/* <Image
+                  style={{width: 50, height: 50,borderRadius:25}}
+                  source={{uri: imagen}}
+                />      */}
+                <Text style={styles.itemText}>1.10.- Práctica</Text> 
+          </View>
+      </TouchableHighlight>
+
+      </ScrollView>
       </React.Fragment>
     )
   }
@@ -73,6 +194,12 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#efefef',
+    },
+    contentContainer: {
+      paddingTop: 10,
+      paddingBottom: 10,
+      paddingLeft: 10,
+      paddingRight: 10
     },
     item: {
       backgroundColor: '#fff',

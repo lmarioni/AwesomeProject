@@ -50,12 +50,14 @@ export default class SignInScreen extends React.Component {
     _loguearse = async () => {
       this.setState({animating:true})
 
-     await fetch('http://api.axontraining.com.ar/usuarios/search?email='+this.state.email)
+     await fetch('http://api.axontraining.com/usuarios?email='+this.state.email)
         .then((response) => response.json())
         .then((responseJson) => {
-            
+
             //console.log(Object.keys(responseJson).length);
             if(Object.keys(responseJson).length === 1){
+              console.log('ok');
+              console.log(responseJson[0].id);
                this.setState({
                    login: true
                    })

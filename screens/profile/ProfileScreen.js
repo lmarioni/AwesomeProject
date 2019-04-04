@@ -1,6 +1,8 @@
 import React from 'react';
 import { Text, View, Image, StyleSheet, AsyncStorage, Button } from 'react-native';
 import Placeholder from 'rn-placeholder';
+// import console = require('console');
+// import console = require('console');
 
 export default class SettingsScreen extends React.Component {
 
@@ -43,6 +45,8 @@ export default class SettingsScreen extends React.Component {
             color="#1E90FF"
             animate="fade"
           />
+          <Button title="Cerrar sesion" onPress={this._signOutAsync} />    
+
       </View>
     );
     }else{
@@ -54,7 +58,7 @@ export default class SettingsScreen extends React.Component {
                 source={{uri: this.state.avatar}}/>
 
               <Text style={styles.name}>
-                {this.state.nombre} {this.state.apellido}
+                {this.state.nombre}
               </Text>
           </View>
         </View>
@@ -78,14 +82,13 @@ export default class SettingsScreen extends React.Component {
   _getVar = async () => {
     const userId = await AsyncStorage.getItem('userId');
     
-    await fetch('http://api.axontraining.com.ar/usuario/'+userId)
+    await fetch('https://api.axontraining.com/usuarios/'+userId)
         .then((response) => response.json())
         .then((responseJson) => {
-           console.log(responseJson);
+
            this.setState({
              animating: true,
-             nombre: responseJson.nombre,
-             apellido: responseJson.apellido,
+             nombre: responseJson.name,
              avatar: 'http://www.axonplataforma.com.ar/images/avatar/'+responseJson.avatar,
            })
         });
