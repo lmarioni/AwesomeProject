@@ -2,13 +2,17 @@
 import RF from "react-native-responsive-fontsize";
 import {ScrollView, StyleSheet, FlatList, View, Image, ImageBackground, Text, Dimensions} from 'react-native';
 import React from 'react';
+import FitImage from 'react-native-fit-image';
+import Header from "react-navigation";
   const fondo = 'https://www.axonplataforma.com.ar/aca/f/cursoc/fondo.png';
   const imagen_inicio = "https://www.axonplataforma.com.ar/images/5c1d4494037c3.png";
   const resizeMode = 'center';
-  export default function Teorico1Screen() {
+  
+  export default function Teorico1Screen(){
     let dimensions = Dimensions.get("window");
     let imageHeight = Math.round((dimensions.width * 10) / 16);
     let imageWidth = dimensions.width;
+    
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <ImageBackground style={{flex: 1, resizeMode}} source={{ uri: fondo }}>

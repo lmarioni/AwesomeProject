@@ -1,19 +1,20 @@
 import React, { Component } from 'react'
-import {ScrollView, StyleSheet, TouchableHighlight, View, Text, Image} from 'react-native';
+import {ScrollView, StyleSheet, TouchableHighlight, View, Text, Image, Dimensions} from 'react-native';
 import { Icon } from 'expo';
 
 export default class LeccionScreen extends Component {
+  static navigationOptions = {
+    title: 'Enemigos del Aprendizaje',
+  };
   render() {
+    const {navigate} = this.props.navigation;
     return (
       <React.Fragment>
         <ScrollView contentContainerStyle={styles.contentContainer}>
           <TouchableHighlight
             style={styles.item}
             underlayColor='#d8d8d8'
-            onPress={() => this.props.navigation.navigate('Teorico1Screen', {
-              // leccionId: item.id,
-              // leccionNombre: item.nombre,
-            })}
+            onPress={() => navigate('Teorico1Screen', {title: 'Instrucción'})}
           >
             <View style={styles.contenido}>
               <Image

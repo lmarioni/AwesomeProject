@@ -92,5 +92,5 @@ const styles = StyleSheet.create({
   fitImageWithSize: {
     height: 100,
     width: 30,
-  },
+  }
 });
