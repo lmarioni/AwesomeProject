@@ -6,6 +6,7 @@ import TabBarIcon from '../components/TabBarIcon';
 import EstudiarScreen from '../screens/estudiar/EstudiarScreen';
   import LeccionScreen from '../screens/estudiar/LeccionScreen';
   //Estos son de prueba para los modulos de la leccion 1:
+    import VideoExplicativo from '../screens/estudiar/components/lecciones/enemigos/modulos/VideoExplicativo';
     import Teorico1Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico1Screen';
     import Teorico2Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico2Screen';
     import Teorico3Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico3Screen';
@@ -16,7 +17,9 @@ import EstudiarScreen from '../screens/estudiar/EstudiarScreen';
     import Teorico8Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico8Screen';
     import Teorico9Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico9Screen';
     import Teorico10Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico10Screen';
-
+    import MaterialLectura from '../screens/estudiar/components/lecciones/enemigos/modulos/MaterialLectura'
+    import Video1 from '../screens/estudiar/components/lecciones/enemigos/modulos/Video1'
+    import Lectura from '../screens/estudiar/components/lecciones/enemigos/modulos/Lectura'
 
 
 // import ModulosScreen from '../screens/estudiar/ModulosScreen';
@@ -24,12 +27,10 @@ import CalendarioScreen from '../screens/calendario/CalendarioScreen';
 import ProfileScreen from '../screens/profile/ProfileScreen';
 import ClaseScreen from '../screens/calendario/ClaseScreen';
 
-
-
-
 const HomeStack = createStackNavigator({
   Estudiar: EstudiarScreen,
   Leccion: LeccionScreen,
+  VideoExplicativo: VideoExplicativo,
   Teorico1Screen: Teorico1Screen,
   Teorico2Screen: Teorico2Screen,
   Teorico3Screen: Teorico3Screen,
@@ -39,7 +40,10 @@ const HomeStack = createStackNavigator({
   Teorico7Screen: Teorico7Screen,
   Teorico8Screen: Teorico8Screen,
   Teorico9Screen: Teorico9Screen,
-  Teorico10Screen: Teorico10Screen
+  Teorico10Screen: Teorico10Screen,
+  MaterialLectura: MaterialLectura,
+  Video1: Video1,
+  Lectura: Lectura
   // Modulos: ModulosScreen
 });
 

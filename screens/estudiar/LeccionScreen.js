@@ -3,14 +3,36 @@ import {ScrollView, StyleSheet, TouchableHighlight, View, Text, Image, Dimension
 import { Icon } from 'expo';
 
 export default class LeccionScreen extends Component {
+  constructor() {
+    super();
+    this.state = {
+        result: 0
+    };
+  }
   static navigationOptions = {
     title: 'Enemigos del Aprendizaje',
   };
+  getResponse(result){
+    this.setState({result});
+  }
   render() {
     const {navigate} = this.props.navigation;
     return (
       <React.Fragment>
         <ScrollView contentContainerStyle={styles.contentContainer}>
+        <TouchableHighlight
+            style={styles.item}
+            underlayColor='#d8d8d8'
+            onPress={() => navigate('VideoExplicativo', {title: 'Video Explicativo'})}
+          >
+            <View style={styles.contenido}>
+              <Image
+                style={{ width: 50, height: 50, borderRadius: 25 }}
+                source={{ uri: "https://picsum.photos/200/300/?image=1079" }}
+              />
+              <Text style={styles.itemText}>1.1 - Vídeo Explicativo</Text>
+            </View>
+          </TouchableHighlight>
           <TouchableHighlight
             style={styles.item}
             underlayColor='#d8d8d8'
@@ -21,7 +43,7 @@ export default class LeccionScreen extends Component {
                 style={{ width: 50, height: 50, borderRadius: 25 }}
                 source={{ uri: "https://picsum.photos/200/300/?image=1082" }}
               />
-              <Text style={styles.itemText}>1.1- Introducción</Text>
+              <Text style={styles.itemText}>1.2 -  Introducción</Text>
             </View>
           </TouchableHighlight>
 
@@ -38,7 +60,7 @@ export default class LeccionScreen extends Component {
                 style={{ width: 50, height: 50, borderRadius: 25 }}
                 source={{ uri: "https://picsum.photos/200/300/?image=1077" }}
               />
-              <Text style={styles.itemText}>1.2 ¿Qué es el Aprendizaje?</Text>
+              <Text style={styles.itemText}>1.3 - ¿Qué es el Aprendizaje?</Text>
             </View>
           </TouchableHighlight>
 
@@ -55,7 +77,7 @@ export default class LeccionScreen extends Component {
                 style={{ width: 50, height: 50, borderRadius: 25 }}
                 source={{ uri: "https://picsum.photos/200/300/?image=1075" }}
               />
-              <Text style={styles.itemText}>1.3.- Re-aprendiendo a relacionarnos</Text>
+              <Text style={styles.itemText}>1.4 - Re-aprendiendo a relacionarnos</Text>
             </View>
           </TouchableHighlight>
 
@@ -72,7 +94,7 @@ export default class LeccionScreen extends Component {
                 style={{ width: 50, height: 50, borderRadius: 25 }}
                 source={{ uri: "https://picsum.photos/200/300/?image=1073" }}
               />
-              <Text style={styles.itemText}>1.4.- Enemigos del Aprendizaje</Text>
+              <Text style={styles.itemText}>1.5 - Enemigos del Aprendizaje</Text>
             </View>
           </TouchableHighlight>
 
@@ -89,7 +111,7 @@ export default class LeccionScreen extends Component {
                 style={{ width: 50, height: 50, borderRadius: 25 }}
                 source={{ uri: "https://picsum.photos/200/300/?image=1068" }}
               />
-              <Text style={styles.itemText}>1.5.- Descubriendo oportunidades</Text>
+              <Text style={styles.itemText}>1.6 - Descubriendo oportunidades</Text>
             </View>
           </TouchableHighlight>
 
@@ -106,7 +128,7 @@ export default class LeccionScreen extends Component {
                 style={{ width: 50, height: 50, borderRadius: 25 }}
                 source={{ uri: "https://picsum.photos/200/300/?image=1063" }}
               />
-              <Text style={styles.itemText}>1.6.- La propia imagen</Text>
+              <Text style={styles.itemText}>1.7 - La propia imagen</Text>
             </View>
           </TouchableHighlight>
 
@@ -123,7 +145,7 @@ export default class LeccionScreen extends Component {
                 style={{ width: 50, height: 50, borderRadius: 25 }}
                 source={{ uri: "https://picsum.photos/200/300/?image=1054" }}
               />
-              <Text style={styles.itemText}>1.7.- Conociendo nuestra capacidad</Text>
+              <Text style={styles.itemText}>1.8 - Conociendo nuestra capacidad</Text>
             </View>
           </TouchableHighlight>
 
@@ -140,7 +162,7 @@ export default class LeccionScreen extends Component {
                 style={{ width: 50, height: 50, borderRadius: 25 }}
                 source={{ uri: "https://picsum.photos/200/300/?image=1048" }}
               />
-              <Text style={styles.itemText}>1.8.- Principales enemigos del aprendizaje</Text>
+              <Text style={styles.itemText}>1.9 - Principales enemigos del aprendizaje</Text>
             </View>
           </TouchableHighlight>
 
@@ -157,7 +179,7 @@ export default class LeccionScreen extends Component {
                 style={{ width: 50, height: 50, borderRadius: 25 }}
                 source={{ uri: "https://picsum.photos/200/300/?image=1044" }}
               />
-              <Text style={styles.itemText}>1.9.- Reflexión sobre el tiempo</Text>
+              <Text style={styles.itemText}>1.10 - Reflexión sobre el tiempo</Text>
             </View>
           </TouchableHighlight>
 
@@ -174,7 +196,23 @@ export default class LeccionScreen extends Component {
                 style={{ width: 50, height: 50, borderRadius: 25 }}
                 source={{ uri: "https://picsum.photos/200/300/?image=1040" }}
               />
-              <Text style={styles.itemText}>1.10.- Práctica</Text>
+              <Text style={styles.itemText}>1.11 - Práctica</Text>
+            </View>
+          </TouchableHighlight>
+          <TouchableHighlight
+            style={styles.item}
+            underlayColor='#d8d8d8'
+            onPress={() => this.props.navigation.navigate('MaterialLectura', {
+              // leccionId: item.id,
+              // leccionNombre: item.nombre,
+            })}
+          >
+            <View style={styles.contenido}>
+              <Image
+                style={{ width: 50, height: 50, borderRadius: 25 }}
+                source={{ uri: "https://picsum.photos/200/300/?image=885" }}
+              />
+              <Text style={styles.itemText}>1.12 - Material Lectura</Text>
             </View>
           </TouchableHighlight>
 
