@@ -11,6 +11,17 @@ export default class LeccionScreen extends Component {
   }
   static navigationOptions = {
     title: 'Enemigos del Aprendizaje',
+    headerStyle: {
+      backgroundColor: '#0081C4',
+      borderBottomColor: 'white',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      color: 'white'
+    },
+    backButton:{
+      color: "white"
+    }
   };
   getResponse(result){
     this.setState({result});
@@ -28,9 +39,9 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://picsum.photos/200/300/?image=1079" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-videoexplicativo1.1.png" }}
               />
-              <Text style={styles.itemText}>1.1 - Vídeo Explicativo</Text>
+              <Text style={styles.itemText}>Vídeo Explicativo</Text>
             </View>
           </TouchableHighlight>
           <TouchableHighlight
@@ -41,9 +52,9 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://picsum.photos/200/300/?image=1082" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.2.png" }}
               />
-              <Text style={styles.itemText}>1.2 -  Introducción</Text>
+              <Text style={styles.itemText}>Introducción</Text>
             </View>
           </TouchableHighlight>
 
@@ -58,9 +69,9 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://picsum.photos/200/300/?image=1077" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.3.png" }}
               />
-              <Text style={styles.itemText}>1.3 - ¿Qué es el Aprendizaje?</Text>
+              <Text style={styles.itemText}>¿Qué es el Aprendizaje?</Text>
             </View>
           </TouchableHighlight>
 
@@ -75,9 +86,9 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://picsum.photos/200/300/?image=1075" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.4.png" }}
               />
-              <Text style={styles.itemText}>1.4 - Re-aprendiendo a relacionarnos</Text>
+              <Text style={styles.itemText}>Re-aprendiendo a relacionarnos</Text>
             </View>
           </TouchableHighlight>
 
@@ -92,9 +103,9 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://picsum.photos/200/300/?image=1073" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.5.png" }}
               />
-              <Text style={styles.itemText}>1.5 - Enemigos del Aprendizaje</Text>
+              <Text style={styles.itemText}>Enemigos del Aprendizaje</Text>
             </View>
           </TouchableHighlight>
 
@@ -109,9 +120,9 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://picsum.photos/200/300/?image=1068" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.6.png" }}
               />
-              <Text style={styles.itemText}>1.6 - Descubriendo oportunidades</Text>
+              <Text style={styles.itemText}>Descubriendo oportunidades</Text>
             </View>
           </TouchableHighlight>
 
@@ -126,9 +137,9 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://picsum.photos/200/300/?image=1063" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.7.png" }}
               />
-              <Text style={styles.itemText}>1.7 - La propia imagen</Text>
+              <Text style={styles.itemText}>La propia imagen</Text>
             </View>
           </TouchableHighlight>
 
@@ -143,9 +154,9 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://picsum.photos/200/300/?image=1054" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.8.png" }}
               />
-              <Text style={styles.itemText}>1.8 - Conociendo nuestra capacidad</Text>
+              <Text style={styles.itemText}>Conociendo nuestra capacidad</Text>
             </View>
           </TouchableHighlight>
 
@@ -160,9 +171,9 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://picsum.photos/200/300/?image=1048" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.9.png" }}
               />
-              <Text style={styles.itemText}>1.9 - Principales enemigos del aprendizaje</Text>
+              <Text style={styles.itemText}>Principales enemigos del aprendizaje</Text>
             </View>
           </TouchableHighlight>
 
@@ -177,9 +188,9 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://picsum.photos/200/300/?image=1044" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.10.png" }}
               />
-              <Text style={styles.itemText}>1.10 - Reflexión sobre el tiempo</Text>
+              <Text style={styles.itemText}>Reflexión sobre el tiempo</Text>
             </View>
           </TouchableHighlight>
 
@@ -194,9 +205,9 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://picsum.photos/200/300/?image=1040" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.11.png" }}
               />
-              <Text style={styles.itemText}>1.11 - Práctica</Text>
+              <Text style={styles.itemText}>Práctica</Text>
             </View>
           </TouchableHighlight>
           <TouchableHighlight
@@ -210,9 +221,41 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://picsum.photos/200/300/?image=885" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.12.png" }}
               />
-              <Text style={styles.itemText}>1.12 - Material Lectura</Text>
+              <Text style={styles.itemText}>Material Lectura</Text>
+            </View>
+          </TouchableHighlight>
+          <TouchableHighlight
+            style={styles.item}
+            underlayColor='#d8d8d8'
+            onPress={() => this.props.navigation.navigate('PracticaRepaso', {
+              // leccionId: item.id,
+              // leccionNombre: item.nombre,
+            })}
+          >
+            <View style={styles.contenido}>
+              <Image
+                style={{ width: 50, height: 50, borderRadius: 25 }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.13.png" }}
+              />
+              <Text style={styles.itemText}>Practica de Repaso</Text>
+            </View>
+          </TouchableHighlight>
+          <TouchableHighlight
+            style={styles.item}
+            underlayColor='#d8d8d8'
+            onPress={() => this.props.navigation.navigate('AsentandoConocimiento', {
+              // leccionId: item.id,
+              // leccionNombre: item.nombre,
+            })}
+          >
+            <View style={styles.contenido}>
+              <Image
+                style={{ width: 50, height: 50, borderRadius: 25 }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.14.png" }}
+              />
+              <Text style={styles.itemText}>Asentando el Conocimiento</Text>
             </View>
           </TouchableHighlight>
 

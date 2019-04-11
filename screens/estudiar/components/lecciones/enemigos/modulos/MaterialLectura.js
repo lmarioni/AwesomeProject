@@ -4,6 +4,17 @@ import React, {Component} from 'react';
 export default class MaterialLectura extends Component {
     static navigationOptions = {
         title: 'Material de Lectura',
+        headerStyle: {
+          backgroundColor: '#0081C4',
+          borderBottomColor: 'white',
+          borderBottomWidth: 3,
+        },
+        headerTitleStyle: {
+          color: 'white'
+        },
+        backButton:{
+          color: "white"
+        }
     };
     render(){
         const {navigate} = this.props.navigation;

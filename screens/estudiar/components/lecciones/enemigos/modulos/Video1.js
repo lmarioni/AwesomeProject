@@ -10,6 +10,17 @@ import { Video } from 'expo';
   export default class Video1 extends Component{
     static navigationOptions = {
         title: 'Cambios de Paradigmas',
+        headerStyle: {
+          backgroundColor: '#0081C4',
+          borderBottomColor: 'white',
+          borderBottomWidth: 3,
+        },
+        headerTitleStyle: {
+          color: 'white'
+        },
+        backButton:{
+          color: "white"
+        }
     };
 
   renderLoadingView() {

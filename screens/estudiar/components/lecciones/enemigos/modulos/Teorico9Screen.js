@@ -5,6 +5,17 @@ import React, {Component} from 'react';
   export default class Teorico9Screen extends Component {
     static navigationOptions = {
       title: 'Reflexión sobre el tiempo',
+      headerStyle: {
+        backgroundColor: '#0081C4',
+        borderBottomColor: 'white',
+        borderBottomWidth: 3,
+      },
+      headerTitleStyle: {
+        color: 'white'
+      },
+      backButton:{
+        color: "white"
+      }
     };
     render(){
       return (

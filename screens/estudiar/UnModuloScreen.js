@@ -16,7 +16,7 @@ static navigationOptions = (
   Platform.OS === 'ios' ?  
   navigationOptions = ({ navigation }) => {
         return {
-          title: navigation.getParam('leccionNombre', 'Estudiar'),
+          title: navigation.getParam('leccionNombre', 'Estudiar')
         };
       } :
       navigationOptions = {

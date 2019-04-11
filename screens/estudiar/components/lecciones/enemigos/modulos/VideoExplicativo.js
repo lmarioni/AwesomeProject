@@ -10,6 +10,17 @@ import { Video } from 'expo';
   export default class VideoExplicativo extends Component {
     static navigationOptions = {
         title: 'Video Explicativo',
+        headerStyle: {
+          backgroundColor: '#0081C4',
+          borderBottomColor: 'white',
+          borderBottomWidth: 3,
+        },
+        headerTitleStyle: {
+          color: 'white'
+        },
+        backButton:{
+          color: "white"
+        }
     };
   renderLoadingView() {
     const dimensions = Dimensions.get('window');

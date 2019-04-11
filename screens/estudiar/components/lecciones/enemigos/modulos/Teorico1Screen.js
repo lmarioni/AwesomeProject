@@ -9,6 +9,17 @@ import React, {Component} from 'react';
   export default class Teorico1Screen extends Component{
     static navigationOptions = {
       title: 'Introducción',
+      headerStyle: {
+        backgroundColor: '#0081C4',
+        borderBottomColor: 'white',
+        borderBottomWidth: 3,
+      },
+      headerTitleStyle: {
+        color: 'white'
+      },
+      backButton:{
+        color: "white"
+      }
     };
     render(){
       let dimensions = Dimensions.get("window");

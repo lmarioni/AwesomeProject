@@ -20,6 +20,8 @@ import EstudiarScreen from '../screens/estudiar/EstudiarScreen';
     import MaterialLectura from '../screens/estudiar/components/lecciones/enemigos/modulos/MaterialLectura'
     import Video1 from '../screens/estudiar/components/lecciones/enemigos/modulos/Video1'
     import Lectura from '../screens/estudiar/components/lecciones/enemigos/modulos/Lectura'
+    import PracticaRepaso from '../screens/estudiar/components/lecciones/enemigos/modulos/PracticaRepaso'
+    import AsentandoConocimiento from '../screens/estudiar/components/lecciones/enemigos/modulos/AsentandoConocimiento'
 
 
 // import ModulosScreen from '../screens/estudiar/ModulosScreen';
@@ -43,7 +45,9 @@ const HomeStack = createStackNavigator({
   Teorico10Screen: Teorico10Screen,
   MaterialLectura: MaterialLectura,
   Video1: Video1,
-  Lectura: Lectura
+  Lectura: Lectura,
+  PracticaRepaso: PracticaRepaso,
+  AsentandoConocimiento: AsentandoConocimiento
   // Modulos: ModulosScreen
 });
 

@@ -5,6 +5,17 @@ import { Constants } from 'expo';
 export default class Lectura extends Component{
     static navigationOptions = {
         title: 'Aprendizaje ontológico',
+        headerStyle: {
+          backgroundColor: '#0081C4',
+          borderBottomColor: 'white',
+          borderBottomWidth: 3,
+        },
+        headerTitleStyle: {
+          color: 'white'
+        },
+        backButton:{
+          color: "white"
+        }
     };
     renderLoadingView() {
         const dimensions = Dimensions.get('window');

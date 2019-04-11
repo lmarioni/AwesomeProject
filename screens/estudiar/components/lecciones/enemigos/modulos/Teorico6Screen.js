@@ -6,6 +6,17 @@ import FitImage from 'react-native-fit-image';
   export default class Teorico6Screen extends Component {
     static navigationOptions = {
       title: 'La propia imagen',
+      headerStyle: {
+        backgroundColor: '#0081C4',
+        borderBottomColor: 'white',
+        borderBottomWidth: 3,
+      },
+      headerTitleStyle: {
+        color: 'white'
+      },
+      backButton:{
+        color: "white"
+      }
     };
     render(){
       return (
