@@ -14,7 +14,8 @@ export default class MaterialLectura extends Component {
         },
         backButton:{
           color: "white"
-        }
+        },
+        headerTintColor: "white"
     };
     render(){
         const {navigate} = this.props.navigation;

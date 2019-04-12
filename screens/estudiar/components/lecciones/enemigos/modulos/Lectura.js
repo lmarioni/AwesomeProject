@@ -15,7 +15,8 @@ export default class Lectura extends Component{
         },
         backButton:{
           color: "white"
-        }
+        },
+        headerTintColor: "white"
     };
     renderLoadingView() {
         const dimensions = Dimensions.get('window');

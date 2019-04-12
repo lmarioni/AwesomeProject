@@ -21,7 +21,8 @@ export default class LeccionScreen extends Component {
     },
     backButton:{
       color: "white"
-    }
+    },
+    headerTintColor: "white"
   };
   getResponse(result){
     this.setState({result});

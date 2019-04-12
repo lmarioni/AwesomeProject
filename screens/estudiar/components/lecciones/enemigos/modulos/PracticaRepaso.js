@@ -16,7 +16,8 @@ export default class PracticaRepaso extends Component {
     },
     backButton:{
       color: "white"
-    }
+    },
+    headerTintColor: "white"
   };
   render() {
     return (

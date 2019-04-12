@@ -1,30 +1,31 @@
-import RF from "react-native-responsive-fontsize";
-import {ScrollView, StyleSheet, FlatList, View, Image, ImageBackground, Text, Dimensions} from 'react-native';
-import React, {Component} from 'react';
-  
-  export default class Teorico9Screen extends Component {
-    static navigationOptions = {
-      title: 'Reflexión sobre el tiempo',
-      headerStyle: {
-        backgroundColor: '#0081C4',
-        borderBottomColor: 'white',
-        borderBottomWidth: 3,
-      },
-      headerTitleStyle: {
-        color: 'white'
-      },
-      backButton:{
-        color: "white"
-      }
-    };
-    render(){
-      return (
-        <ScrollView contentContainerStyle={styles.contentContainer}>
-          <View style={styles.container}>
-            <Text accessible={false} style={styles.subTittleColor}>Reflexión sobre el tiempo</Text>
-            <Text accessible={false} style={styles.texto}>Antes de finalizar con esta lección, te invitamos a reflexionar con el siguiente artículo sobre el Tiempo, redactado por nuestras docentes Natalia Risso y Lorena Nardi.</Text>
-            <Text accessible={false} style={styles.subTittleColor}>El Tiempo: nuestro mayor enemigo</Text>
-            <Text accessible={false} style={styles.texto}>Como verás, el proceso de aprendizaje que propone el Coaching Ontológico es aprender a aprender. Esto abre la posibilidad de cambiar nuestra forma de interpretar el mundo y accionar en él de distintas maneras.{"\n"}{"\n"}
+import { ScrollView, View, Text } from 'react-native';
+import React, { Component } from 'react';
+import styles from "./css/estilo";
+
+export default class Teorico9Screen extends Component {
+  static navigationOptions = {
+    title: 'Reflexión sobre el tiempo',
+    headerStyle: {
+      backgroundColor: '#0081C4',
+      borderBottomColor: 'white',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      color: 'white'
+    },
+    backButton: {
+      color: "white"
+    },
+    headerTintColor: "white"
+  };
+  render() {
+    return (
+      <ScrollView contentContainerStyle={styles.otherContentContainer}>
+        <View style={styles.container}>
+          <Text accessible={false} style={styles.subTittleColor}>Reflexión sobre el tiempo</Text>
+          <Text accessible={false} style={styles.texto}>Antes de finalizar con esta lección, te invitamos a reflexionar con el siguiente artículo sobre el Tiempo, redactado por nuestras docentes Natalia Risso y Lorena Nardi.</Text>
+          <Text accessible={false} style={styles.subTittleColor}>El Tiempo: nuestro mayor enemigo</Text>
+          <Text accessible={false} style={styles.texto}>Como verás, el proceso de aprendizaje que propone el Coaching Ontológico es aprender a aprender. Esto abre la posibilidad de cambiar nuestra forma de interpretar el mundo y accionar en él de distintas maneras.{"\n"}{"\n"}
             Aprender requiere de dar el primer paso, saliendo de aquella zona que conocemos y soltando nuestras certezas para aventurarnos a lo desconocido. Esto puede resultar inquietante, pero implica tomar decisiones y es común que ante estas situaciones podamos sentir angustia o miedo.{"\n"}{"\n"}
             Por lo general, ante el sentido de vacío que provoca lo desconocido, preferimos quedarnos en lo que ya conocemos y muchas veces, antes de dar el paso inicial nos aferramos a esa rutina que ya tenemos pautada, destinando nuestro tiempo a lo que consideramos “seguro” sin percatarnos que de dicho modo, cerramos posibilidad a nuevas actividades y aprendizajes.{"\n"}{"\n"}
             Al sumar una nueva actividad a nuestra rutina, podría pasar que aparezcan las siguientes preguntas en nuestra conversación interna: “¿Tendré tiempo para esto?”, “¿en qué tiempo lo haré?”, “¿cuánto tiempo me demandará?”; también pueda pasar que nos prometamos asumir ciertas actitudes, como: “Le dedicaré una hora a esto, por día” o “seguramente pueda encontrar el tiempo para dedicar a esto”. Puede que en el transitar por la experiencia cumplamos lo propuesto, pero si esto no sucede buscamos darle sentido como seres humanos, explicando desde lo que nos es conocido, lo que hasta el momento venía funcionando; quizás con excusas o dando justificaciones que nos dan la razón de cierto modo y nos tranquilizan.{"\n"}{"\n"}
@@ -34,67 +35,8 @@ import React, {Component} from 'react';
             1.- ¿Qué significa el tiempo para ti?{"\n"}
             2.- ¿Qué harías distinto si no supieras que existe?{"\n"}
             3.- ¿Cómo puede el tiempo convertirse en tu amigo del aprendizaje?{"\n"}</Text>
-          </View>
-        </ScrollView>
-      );
-    }
+        </View>
+      </ScrollView>
+    );
   }
-  
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignSelf: "stretch",
-    backgroundColor: 'transparent',
-    width: null,
-    height: null,
-  },
-  contentContainer: {
-    backgroundColor: 'transparent',
-    paddingVertical: 10,
-    paddingLeft: 2,
-    paddingRight: 2
-  },
-  title: {
-    fontSize: RF(4.3),
-    textAlign: 'center',
-    marginBottom: 20,
-    backgroundColor: 'transparent'
-  },
-  subTittle: {
-    fontSize: RF(4),
-    textAlign: 'center',
-    fontWeight: "bold",
-    backgroundColor: '#fff'
-  },
-  subTittleColor: {
-    paddingTop: 10,
-    fontSize: RF(4),
-    textAlign: 'center',
-    color: "#005D82",
-    fontWeight: "bold",
-    backgroundColor: 'transparent'
-  },
-  estiloBR: {
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingTop: 10,
-    paddingBottom: 10,
-    backgroundColor: 'transparent'
-  },
-  texto: {
-    fontSize: RF(2.8),
-    textAlign: 'justify',
-    fontWeight: '100',
-    backgroundColor: '#fff',
-    width: "100%",
-    marginTop: 10,
-    marginLeft: 2,
-    marginRight: 2,
-    marginBottom: 10,
-    borderRadius: 0,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: '#d8d8d8',
-  }
-});
+}

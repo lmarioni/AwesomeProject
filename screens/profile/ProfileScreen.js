@@ -24,12 +24,16 @@ export default class SettingsScreen extends React.Component {
   static navigationOptions = {
     title: 'Perfil',
     headerStyle: {
-      backgroundColor: '#1E90FF',
+      backgroundColor: '#0081C4',
+      borderBottomColor: 'white',
+      borderBottomWidth: 3,
     },
-    headerTintColor: '#fff',
     headerTitleStyle: {
-      fontWeight: 'bold',
+      color: 'white'
     },
+    backButton:{
+      color: "white"
+    }
   };
 
   

@@ -1,6 +1,6 @@
 import RF from "react-native-responsive-fontsize";
-import { Text, View, ScrollView, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import React, { PureComponent, Component } from 'react';
+import { Text, ScrollView, StyleSheet, Image } from 'react-native';
+import React, {Component } from 'react';
 import CardStack, { Card } from 'react-native-card-stack-swiper';
 
 export default class AsentandoConocimiento extends Component {
@@ -16,7 +16,8 @@ export default class AsentandoConocimiento extends Component {
     },
     backButton:{
       color: "white"
-    }
+    },
+    headerTintColor: "white"
   };
   render() {
     return (

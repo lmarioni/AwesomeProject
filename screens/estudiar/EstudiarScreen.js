@@ -38,6 +38,17 @@ export default class HomeScreen extends React.Component {
 
   static navigationOptions = {
     title: 'Estudiar',
+    headerStyle: {
+      backgroundColor: '#0081C4',
+      borderBottomColor: 'white',
+      borderBottomWidth: 3,
+    },
+    headerTitleStyle: {
+      color: 'white'
+    },
+    backButton:{
+      color: "white"
+    }
   };
 
   render() {
