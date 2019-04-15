@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
         paddingTop: 10,
         fontSize: RF(4),
         textAlign: 'center',
-        color: "#005D82",
+        color: "#C2092A",
         fontWeight: "bold",
         backgroundColor: 'transparent'
     },
@@ -41,8 +41,6 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         width: "100%",
         marginTop: 10,
-        marginLeft: 2,
-        marginRight: 2,
         marginBottom: 10,
         borderRadius: 0,
         padding: 10,
@@ -56,7 +54,6 @@ const styles = StyleSheet.create({
         height: 100,
         width: 30,
     },
-
     fitImage2: {
         borderRadius: 20,
         height: 150,
@@ -90,11 +87,11 @@ const styles = StyleSheet.create({
         borderColor: 'black',
     },
     card: {
-        width: 320,
-        height: 420,
+        width: "95%",
+        height: "100%",
         backgroundColor: 'white',
         borderRadius: 5,
-        borderColor: "#005D82",
+        borderColor: "#C2092A",
         shadowColor: 'black',
         shadowOffset: {
             width: 0,
@@ -107,7 +104,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 5,
         borderWidth: 6,
-        borderColor: "#005D82",
+        borderColor: "#C2092A",
         shadowColor: 'black',
         shadowOffset: {
             width: 0,
@@ -122,7 +119,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderRadius: 5,
         borderWidth: 6,
-        borderColor: "#005D82",
+        borderColor: "#C2092A",
         shadowColor: 'black',
         shadowOffset: {
             width: 0,
@@ -164,7 +161,7 @@ const styles = StyleSheet.create({
         width: 55,
         height: 55,
         borderWidth: 6,
-        borderColor: '#005D82',
+        borderColor: '#C2092A',
         borderWidth: 4,
         borderRadius: 55,
         marginTop: -15
@@ -175,7 +172,7 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 75,
         borderWidth: 6,
-        borderColor: '#005D82',
+        borderColor: '#C2092A',
     },
     red: {
         width: 75,
@@ -183,7 +180,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#fff',
         borderRadius: 75,
         borderWidth: 6,
-        borderColor: '#005D82',
+        borderColor: '#C2092A',
+    },
+    navBackground: {
+        backgroundColor: "#C2092A"
     }
 });
 

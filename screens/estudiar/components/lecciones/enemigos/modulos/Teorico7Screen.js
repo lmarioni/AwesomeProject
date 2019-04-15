@@ -7,7 +7,7 @@ export default class Teorico7Screen extends Component {
   static navigationOptions = {
     title: 'Conociendo nuestra capacidad',
     headerStyle: {
-      backgroundColor: '#0081C4',
+      backgroundColor: '#C2092A',
       borderBottomColor: 'white',
       borderBottomWidth: 3,
     },

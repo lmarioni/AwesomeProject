@@ -4,7 +4,7 @@ export default class Video1 extends Component {
   static navigationOptions = {
     title: 'Cambios de Paradigmas',
     headerStyle: {
-      backgroundColor: '#0081C4',
+      backgroundColor: '#C2092A',
       borderBottomColor: 'white',
       borderBottomWidth: 3,
     },

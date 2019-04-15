@@ -6,7 +6,7 @@ export default class Lectura extends Component{
     static navigationOptions = {
         title: 'Aprendizaje ontológico',
         headerStyle: {
-          backgroundColor: '#0081C4',
+          backgroundColor: '#C2092A',
           borderBottomColor: 'white',
           borderBottomWidth: 3,
         },

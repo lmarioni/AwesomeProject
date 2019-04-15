@@ -7,7 +7,7 @@ export default class PracticaRepaso extends Component {
   static navigationOptions = {
     title: 'Práctica de repaso',
     headerStyle: {
-      backgroundColor: '#0081C4',
+      backgroundColor: '#C2092A',
       borderBottomColor: 'white',
       borderBottomWidth: 3,
     },
@@ -135,7 +135,7 @@ const styles = StyleSheet.create({
     height: 420,
     backgroundColor: 'white',
     borderRadius: 5,
-    borderColor: "#005D82",
+    borderColor: "#C2092A",
     shadowColor: 'black',
     shadowOffset: {
       width: 0,
@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 5,
     borderWidth: 6,
-    borderColor: "#005D82",
+    borderColor: "#C2092A",
     shadowColor: 'black',
     shadowOffset: {
       width: 0,
@@ -160,7 +160,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 5,
     borderWidth: 6,
-    borderColor: "#005D82",
+    borderColor: "#C2092A",
     shadowColor: 'black',
     shadowOffset: {
       width: 0,
@@ -202,7 +202,7 @@ const styles = StyleSheet.create({
     width: 55,
     height: 55,
     borderWidth: 6,
-    borderColor: '#005D82',
+    borderColor: '#C2092A',
     borderWidth: 4,
     borderRadius: 55,
     marginTop: -15
@@ -213,7 +213,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 75,
     borderWidth: 6,
-    borderColor: '#005D82',
+    borderColor: '#C2092A',
   },
   red: {
     width: 75,
@@ -221,7 +221,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 75,
     borderWidth: 6,
-    borderColor: '#005D82',
+    borderColor: '#C2092A',
   },
   texto: {
     fontSize: RF(3),

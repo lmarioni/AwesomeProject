@@ -1,6 +1,7 @@
 
-import { StyleSheet, Dimensions, ActivityIndicator, WebView } from 'react-native';
+import { Dimensions, ActivityIndicator, WebView } from 'react-native';
 import React, { Component } from 'react';
+import styles from "./css/estilo";
 export default class VideoExplicativo extends Component {
   constructor(props) {
     super(props);
@@ -8,7 +9,7 @@ export default class VideoExplicativo extends Component {
   static navigationOptions = {
     title: "Vídeo Explicativo",
     headerStyle: {
-      backgroundColor: '#0081C4',
+      backgroundColor: '#C2092A',
       borderBottomColor: 'white',
       borderBottomWidth: 3,
     },

@@ -7,7 +7,7 @@ export default class Teorico6Screen extends Component {
   static navigationOptions = {
     title: 'La propia imagen',
     headerStyle: {
-      backgroundColor: '#0081C4',
+      backgroundColor: '#C2092A',
       borderBottomColor: 'white',
       borderBottomWidth: 3,
     },

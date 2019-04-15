@@ -7,7 +7,7 @@ export default class Teorico8Screen extends Component {
   static navigationOptions = {
     title: 'Principales enemigos del aprendizaje',
     headerStyle: {
-      backgroundColor: '#0081C4',
+      backgroundColor: '#C2092A',
       borderBottomColor: 'white',
       borderBottomWidth: 3,
     },

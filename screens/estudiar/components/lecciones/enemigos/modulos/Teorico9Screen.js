@@ -6,7 +6,7 @@ export default class Teorico9Screen extends Component {
   static navigationOptions = {
     title: 'Reflexión sobre el tiempo',
     headerStyle: {
-      backgroundColor: '#0081C4',
+      backgroundColor: '#C2092A',
       borderBottomColor: 'white',
       borderBottomWidth: 3,
     },

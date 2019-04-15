@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import {ScrollView, StyleSheet, TouchableHighlight, View, Text, Image, Dimensions} from 'react-native';
-import { Icon } from 'expo';
+import {ScrollView, StyleSheet, TouchableHighlight, View, Text, Image} from 'react-native';
 
 export default class LeccionScreen extends Component {
   constructor() {
@@ -12,7 +11,7 @@ export default class LeccionScreen extends Component {
   static navigationOptions = {
     title: 'Enemigos del Aprendizaje',
     headerStyle: {
-      backgroundColor: '#0081C4',
+      backgroundColor: '#C2092A',
       borderBottomColor: 'white',
       borderBottomWidth: 3,
     },
@@ -206,7 +205,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.11.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/practica.png" }}
               />
               <Text style={styles.itemText}>Práctica</Text>
             </View>
@@ -222,7 +221,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.12.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/materialDeLectura.png" }}
               />
               <Text style={styles.itemText}>Material Lectura</Text>
             </View>
@@ -238,9 +237,9 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.13.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/practicaDeRepaso.png" }}
               />
-              <Text style={styles.itemText}>Practica de Repaso</Text>
+              <Text style={styles.itemText}>Práctica de Repaso</Text>
             </View>
           </TouchableHighlight>
           <TouchableHighlight
@@ -254,7 +253,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.14.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/asentandoConocimiento.png" }}
               />
               <Text style={styles.itemText}>Asentando el Conocimiento</Text>
             </View>
@@ -287,7 +286,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     borderWidth: 1,
-    borderColor: '#d8d8d8',
+    borderColor: '#C2092A',
   },
   itemText: {
     color: 'black',
@@ -312,7 +311,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     borderWidth: 1,
-    borderColor: '#d8d8d8',
+    borderColor: '#C2092A',
   },
   itemTextBlock: {
     color: '#79797a',
@@ -320,16 +319,5 @@ const styles = StyleSheet.create({
     fontWeight: '100',
     paddingLeft: 15,
     width: '80%',
-  },
-  item: {
-    backgroundColor: '#fff',
-    height: 70,
-    marginTop: 10,
-    marginLeft: 10,
-    marginRight: 10,
-    borderRadius: 5,
-    padding: 10,
-    borderWidth: 1,
-    borderColor: '#d8d8d8',
   }
 });

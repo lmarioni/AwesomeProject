@@ -6,7 +6,7 @@ export default class Teorico10Screen extends Component {
   static navigationOptions = {
     title: 'Práctica',
     headerStyle: {
-      backgroundColor: '#0081C4',
+      backgroundColor: '#C2092A',
       borderBottomColor: 'white',
       borderBottomWidth: 3,
     },

@@ -5,7 +5,7 @@ export default class MaterialLectura extends Component {
     static navigationOptions = {
         title: 'Material de Lectura',
         headerStyle: {
-          backgroundColor: '#0081C4',
+          backgroundColor: '#C2092A',
           borderBottomColor: 'white',
           borderBottomWidth: 3,
         },

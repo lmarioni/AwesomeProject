@@ -7,7 +7,7 @@ export default class AsentandoConocimiento extends Component {
   static navigationOptions = {
     title: 'Asentando el Conocimiento',
     headerStyle: {
-      backgroundColor: '#0081C4',
+      backgroundColor: '#C2092A',
       borderBottomColor: 'white',
       borderBottomWidth: 3,
     },
