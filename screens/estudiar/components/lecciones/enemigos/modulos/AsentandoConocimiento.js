@@ -29,18 +29,23 @@ export default class AsentandoConocimiento extends Component {
           </Card>
           <Card style={[styles.card, styles.card1]}>
             <Text style={styles.subTittleColor}>Aprendiste que los Enemigos del Aprendizaje son nuestros obstáculos internos.</Text>
+            <Image source={{ uri: 'https://www.axonplataforma.com.ar/images/asentandoConocimiento.png' }} style={styles.fitImage} />
           </Card>
           <Card style={[styles.card, styles.card1]}>
             <Text style={styles.subTittleColor}>Descubriste lo que, dentro del coaching ontológico llamamos Caja de creencias.</Text>
+            <Image source={{ uri: 'https://www.axonplataforma.com.ar/images/asentandoConocimiento.png' }} style={styles.fitImage} />
           </Card>
           <Card style={[styles.card, styles.card1]}>
             <Text style={styles.subTittleColor}>Te observaste a ti mismo desde tu interior.</Text>
+            <Image source={{ uri: 'https://www.axonplataforma.com.ar/images/asentandoConocimiento.png' }} style={styles.fitImage} />
           </Card>
           <Card style={[styles.card, styles.card1]}>
             <Text style={styles.subTittleColor}>Tomaste consciencia entre tu aprender y saber.</Text>
+            <Image source={{ uri: 'https://www.axonplataforma.com.ar/images/asentandoConocimiento.png' }} style={styles.fitImage} />
           </Card>
           <Card style={[styles.card, styles.card1]}>
             <Text style={styles.subTittleColor}>Identificaste tus enemigos del aprendizaje.</Text>
+            <Image source={{ uri: 'https://www.axonplataforma.com.ar/images/asentandoConocimiento.png' }} style={styles.fitImage} />
           </Card>
           <Card style={[styles.card, styles.card1]}>
             <Text style={styles.textoPreguntas}>Dentro de 6 días, tendrás habilitada la siguiente lección. El tiempo que tendrás a partir de ahora, te recomendamos tomarlo para aplicar lo aprendido en esta lección en tu Realidad ideal para lo cual te inscribiste en esta carrera.</Text>
@@ -66,16 +71,17 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     fontSize: RF(4),
     textAlign: 'center',
-    color: "#005D82",
+    color: "#C2092A",
     fontWeight: "bold",
     backgroundColor: 'transparent'
   },
   card: {
     width: 320,
-    height: 420,
+    height: "100%",
+    minHeight: 450,
     backgroundColor: 'white',
     borderRadius: 5,
-    borderColor: "#005D82",
+    borderColor: "#C2092A",
     shadowColor: 'black',
     shadowOffset: {
       width: 0,
@@ -88,22 +94,19 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     borderRadius: 5,
     borderWidth: 6,
-    borderColor: "#005D82",
+    borderColor: "#C2092A",
     shadowColor: 'black',
     shadowOffset: {
       width: 0,
       height: 1
     },
     shadowOpacity: 0.5,
-    alignItems: 'center',
-    justifyContent: 'center',
-    flexDirection: 'column'
   },
   card2: {
     backgroundColor: 'white',
     borderRadius: 5,
     borderWidth: 6,
-    borderColor: "#005D82",
+    borderColor: "#C2092A",
     shadowColor: 'black',
     shadowOffset: {
       width: 0,
@@ -145,7 +148,7 @@ const styles = StyleSheet.create({
     width: 55,
     height: 55,
     borderWidth: 6,
-    borderColor: '#005D82',
+    borderColor: '#C2092A',
     borderWidth: 4,
     borderRadius: 55,
     marginTop: -15
@@ -156,7 +159,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 75,
     borderWidth: 6,
-    borderColor: '#005D82',
+    borderColor: '#C2092A',
   },
   red: {
     width: 75,
@@ -164,7 +167,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     borderRadius: 75,
     borderWidth: 6,
-    borderColor: '#005D82',
+    borderColor: '#C2092A',
   },
   texto: {
     fontSize: RF(3),
@@ -177,9 +180,9 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   textoPreguntas: {
-    fontSize: RF(2.5),
+    fontSize: RF(3),
     textAlign: 'center',
-    fontWeight: '200',
+    fontWeight: 'bold',
     backgroundColor: 'transparent',
     width: "100%",
     marginTop: 2,
@@ -187,7 +190,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   textoRespuestas: {
-    fontSize: RF(2.2),
+    fontSize: RF(2.5),
     textAlign: 'justify',
     fontWeight: '200',
     backgroundColor: 'transparent',
@@ -202,7 +205,10 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     height: 150,
     width: 150,
-    marginLeft: "25%"
+    marginLeft: "25%",
+    justifyContent: 'center',
+    alignItems: 'center',
+    flexDirection: 'column'
   },
   fitImageWithSize: {
     height: 100,

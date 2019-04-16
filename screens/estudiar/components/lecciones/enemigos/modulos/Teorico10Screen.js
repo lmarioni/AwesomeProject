@@ -1,7 +1,8 @@
-import { ScrollView, View, Text } from 'react-native';
+import { ScrollView, View, Text, Dimensions, Image } from 'react-native';
 import React, { Component } from 'react';
 import styles from "./css/estilo";
-
+const imagen1 = "https://picsum.photos/500/500/?image=667";
+const imagen2 = "https://picsum.photos/500/500/?image=635";
 export default class Teorico10Screen extends Component {
   static navigationOptions = {
     title: 'Práctica',
@@ -19,13 +20,19 @@ export default class Teorico10Screen extends Component {
     headerTintColor: "white"
   };
   render() {
+    let dimensions = Dimensions.get("window");
+    let imageHeight = Math.round((dimensions.width * 10) / 16);
+    let imageWidth = dimensions.width;
+    let mode = 'center';
     return (
       <ScrollView contentContainerStyle={styles.otherContentContainer}>
         <View style={styles.container}>
           <Text accessible={false} style={styles.subTittleColor}>Práctica</Text>
-          <Text accessible={false} style={styles.texto}>Cuando tengas la oportunidad de realizar Coaching a alguien, necesitarás distinguir cuál enemigo del aprendizaje tiene incorporado tu cliente. Por ello, a modo de práctica te proponemos elegir 3 Enemigos del Aprendizaje que reconozcas en ti mismo, escribirlos en tu cuaderno de apuntes y hallar cómo se manifiestan dentro de tus dominios: en lo familiar, laboral, social, etc.{"\n"}{"\n"}
-            Ahora que ya eres consciente de aquello que te impide ampliar tu conocimiento, ingresa a la siguiente sección y encuentra material de lectura complementaria que te ayudará a saber más sobre este tema.{"\n"}{"\n"}
-            Recuerda que, mientras tu curiosidad y voluntad sean mayores, las barreras al universo que te rodea caerán por si solas.{"\n"}</Text>
+          <Image style={{ height: imageHeight, width: imageWidth }} source={{ uri: imagen1 }} resizeMode={mode} />
+          <Text accessible={false} style={styles.texto}>Cuando tengas la oportunidad de realizar Coaching a alguien, <Text style={{ fontStyle: 'italic', textDecorationLine: "underline" }}>necesitarás distinguir cuál enemigo del aprendizaje tiene incorporado tu cliente</Text>. Por ello, <Text style={{ fontWeight: 'bold' }}>a modo de práctica te proponemos elegir 3 Enemigos del Aprendizaje que reconozcas en ti mismo</Text>, escribirlos en tu cuaderno de apuntes y hallar cómo se manifiestan dentro de tus dominios: en lo familiar, laboral, social, etc.</Text>
+          <Image style={{ height: imageHeight, width: imageWidth }} source={{ uri: imagen2 }} resizeMode={mode} />
+          <Text accessible={false} style={styles.texto}>Ahora que ya eres consciente de aquello que te impide ampliar tu conocimiento, ingresa a la siguiente sección y encuentra material de lectura complementaria que te ayudará a saber más sobre este tema.{"\n"}{"\n"}
+            Recuerda que, <Text style={{ fontWeight: 'bold' }}>mientras tu curiosidad y voluntad sean mayores</Text>, las barreras al universo que te rodea caerán por si solas.{"\n"}</Text>
         </View>
       </ScrollView>
     );

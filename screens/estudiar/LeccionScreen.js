@@ -290,8 +290,8 @@ const styles = StyleSheet.create({
   },
   itemText: {
     color: 'black',
-    fontSize: 15,
-    fontWeight: '100',
+    fontSize: 16,
+    fontWeight: "100",
     paddingLeft: 15,
     width: '80%'
   },
@@ -311,7 +311,7 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     padding: 10,
     borderWidth: 1,
-    borderColor: '#C2092A',
+    borderColor: '#C2092A'
   },
   itemTextBlock: {
     color: '#79797a',

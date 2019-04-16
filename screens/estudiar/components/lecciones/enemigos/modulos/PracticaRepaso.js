@@ -35,7 +35,7 @@ export default class PracticaRepaso extends Component {
           </Card>
           <Card style={[styles.card, styles.card1]}>
             <Text style={styles.subTittleColor}>Pregunta N° 1</Text>
-            <Text style={styles.texto}>¿Qué hay adentro del puntito?</Text>
+            <Text style={styles.textoPreguntas}>¿Qué hay adentro del puntito?</Text>
             <Text style={styles.textoRespuestas}>Lo que sé y nada más. (Por ejemplo, "sé cocinar", "sé lo que debería hacer mi jefe")</Text>
             <Text style={styles.textoRespuestas}>Lo que sé y también lo que sé que no sé. (Por ejemplo, “sé cocinar, "sé lo que debería hacer mi jefe", "sé que no sé hablar chino", "sé que no sé de programación informática")</Text>
             <Text style={styles.textoRespuestas}>Todo lo que no sé que no sé. (Por ejemplo, "lo desconocido")</Text>
@@ -126,13 +126,14 @@ const styles = StyleSheet.create({
     paddingTop: 10,
     fontSize: RF(4),
     textAlign: 'center',
-    color: "#005D82",
+    color: "#C2092A",
     fontWeight: "bold",
     backgroundColor: 'transparent'
   },
   card: {
     width: 320,
-    height: 420,
+    height: "100%",
+    minHeight: 450,
     backgroundColor: 'white',
     borderRadius: 5,
     borderColor: "#C2092A",
@@ -234,9 +235,9 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   textoPreguntas: {
-    fontSize: RF(2.5),
+    fontSize: RF(3),
     textAlign: 'center',
-    fontWeight: '200',
+    fontWeight: 'bold',
     backgroundColor: 'transparent',
     width: "100%",
     marginTop: 2,
@@ -244,7 +245,7 @@ const styles = StyleSheet.create({
     padding: 10,
   },
   textoRespuestas: {
-    fontSize: RF(2.2),
+    fontSize: RF(2.5),
     textAlign: 'justify',
     fontWeight: '200',
     backgroundColor: 'transparent',

@@ -127,8 +127,8 @@ const styles = StyleSheet.create({
   },
   itemText: {
     color: 'black',
-    fontSize: 15,
-    fontWeight: '100',
+    fontSize: 16,
+    fontWeight: "100",
     paddingLeft: 15,
     
   },
