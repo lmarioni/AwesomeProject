@@ -1,9 +1,9 @@
 import { ScrollView, View, Text, Dimensions, Image } from 'react-native';
 import React, { Component } from 'react';
 import styles from "./css/estilo";
-const imagen1 = "https://picsum.photos/500/500/?image=692";
-const imagen2 = "https://picsum.photos/500/500/?image=691";
-const imagen3 = "https://picsum.photos/500/500/?image=689";
+const imagen1 = "https://www.axonplataforma.com.ar/images/Reflexionsobreeltiempo01.png";
+const imagen2 = "https://www.axonplataforma.com.ar/images/Reflexionsobreeltiempo02.png";
+const imagen3 = "https://www.axonplataforma.com.ar/images/Reflexionsobreeltiempo03.png";
 export default class Teorico9Screen extends Component {
   static navigationOptions = {
     title: 'Reflexión sobre el tiempo',
@@ -22,7 +22,7 @@ export default class Teorico9Screen extends Component {
   };
   render() {
     let dimensions = Dimensions.get("window");
-    let imageHeight = Math.round((dimensions.width * 10) / 16);
+    let imageHeight = Math.round((dimensions.width * 9) / 16);
     let imageWidth = dimensions.width;
     let mode = 'center';
     return (

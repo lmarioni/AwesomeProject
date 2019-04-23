@@ -2,7 +2,8 @@ import { ScrollView, View, Text, Dimensions, Image } from 'react-native';
 import React, { Component } from 'react';
 import FitImage from 'react-native-fit-image';
 import styles from "./css/estilo";
-const imagen1 = "https://picsum.photos/500/500/?image=695";
+const imagen1 = "https://www.axonplataforma.com.ar/images/PrincipalesEnemigos.png";
+const imagen2 = "https://www.axonplataforma.com.ar/images/enemigosdelaprendizaje-05-05.png";
 export default class Teorico8Screen extends Component {
   static navigationOptions = {
     title: 'Principales enemigos del aprendizaje',
@@ -21,7 +22,7 @@ export default class Teorico8Screen extends Component {
   };
   render() {
     let dimensions = Dimensions.get("window");
-    let imageHeight = Math.round((dimensions.width * 10) / 16);
+    let imageHeight = Math.round((dimensions.width * 9) / 16);
     let imageWidth = dimensions.width;
     let mode = 'center';
     return (
@@ -40,7 +41,7 @@ export default class Teorico8Screen extends Component {
             7.- Aclarar a los demás que tú eres así y no puedes aprender o cambiar.{"\n"}
             8.- <Text style={{ fontStyle: 'italic', textDecorationLine: "underline" }}>Interponer el factor edad</Text> antes de siquiera intentar algo.{"\n"}
             9.- Decir "no tengo energía"{"\n"}</Text>
-          <FitImage source={{ uri: 'https://www.axonplataforma.com.ar/images/enemigosdelaprendizaje-05-05.png' }} style={styles.fitImage} />
+            <Image style={{ height: imageHeight, width: imageWidth }} source={{ uri: imagen2 }} resizeMode={mode} />
           <Text accessible={false} style={styles.subTittleColor}>¿Cuál otro podrías agregar?</Text>
         </View>
       </ScrollView>

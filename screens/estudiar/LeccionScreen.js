@@ -47,12 +47,12 @@ export default class LeccionScreen extends Component {
           <TouchableHighlight
             style={styles.item}
             underlayColor='#d8d8d8'
-            onPress={() => navigate('Teorico1Screen', {title: 'Instrucción'})}
+            onPress={() => navigate('Teorico1Screen', {title: 'Introduccion'})}
           >
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.2.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/introduccion.png" }}
               />
               <Text style={styles.itemText}>Introducción</Text>
             </View>
@@ -69,7 +69,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.3.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/aprendizaje.png" }}
               />
               <Text style={styles.itemText}>¿Qué es el Aprendizaje?</Text>
             </View>
@@ -86,7 +86,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.4.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/reaprendiendo.png" }}
               />
               <Text style={styles.itemText}>Re-aprendiendo a relacionarnos</Text>
             </View>
@@ -103,7 +103,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.5.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/enemigosAprendizaje.png" }}
               />
               <Text style={styles.itemText}>Enemigos del Aprendizaje</Text>
             </View>
@@ -120,7 +120,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.6.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/descubriendoOportunidades.png" }}
               />
               <Text style={styles.itemText}>Descubriendo oportunidades</Text>
             </View>
@@ -137,7 +137,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.7.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/propiaImagen.png" }}
               />
               <Text style={styles.itemText}>La propia imagen</Text>
             </View>
@@ -154,7 +154,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.8.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/nuestraCapacidad.png" }}
               />
               <Text style={styles.itemText}>Conociendo nuestra capacidad</Text>
             </View>
@@ -171,7 +171,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.9.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/principalesEnemigosAprendizajes.png" }}
               />
               <Text style={styles.itemText}>Principales enemigos del aprendizaje</Text>
             </View>
@@ -188,7 +188,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/Ico-1.10.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/reflexionTiempo.png" }}
               />
               <Text style={styles.itemText}>Reflexión sobre el tiempo</Text>
             </View>
@@ -205,9 +205,9 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/practica.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/ejercicio.png" }}
               />
-              <Text style={styles.itemText}>Práctica</Text>
+              <Text style={styles.itemText}>Ejercicio</Text>
             </View>
           </TouchableHighlight>
           <TouchableHighlight
@@ -221,7 +221,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/materialDeLectura.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/materialLectura.png" }}
               />
               <Text style={styles.itemText}>Material Lectura</Text>
             </View>
@@ -237,7 +237,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/practicaDeRepaso.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/practicaRepaso.png" }}
               />
               <Text style={styles.itemText}>Práctica de Repaso</Text>
             </View>
@@ -253,7 +253,7 @@ export default class LeccionScreen extends Component {
             <View style={styles.contenido}>
               <Image
                 style={{ width: 50, height: 50, borderRadius: 25 }}
-                source={{ uri: "https://www.axonplataforma.com.ar/images/asentandoConocimiento.png" }}
+                source={{ uri: "https://www.axonplataforma.com.ar/images/asentandoElConocimiento.png" }}
               />
               <Text style={styles.itemText}>Asentando el Conocimiento</Text>
             </View>

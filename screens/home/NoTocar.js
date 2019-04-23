@@ -30,9 +30,9 @@ import CalendarioScreen from '../screens/calendario/CalendarioScreen';
 import ProfileScreen from '../screens/profile/ProfileScreen';
 import ClaseScreen from '../screens/calendario/ClaseScreen';
 
-const Menu = createStackNavigator({
+const HomeStack = createStackNavigator({
   Home: Home,
-  EstudiarScreen: EstudiarScreen,
+  Estudiar: EstudiarScreen,
   Leccion: LeccionScreen,
   VideoExplicativo: VideoExplicativo,
   Teorico1Screen: Teorico1Screen,
@@ -66,12 +66,9 @@ Home.navigationOptions = {
     />
   ),
 };
-const EstudiarStack = createStackNavigator({
-  Estudiar: EstudiarScreen,
-  Clase: LeccionScreen
-});
 
-EstudiarStack.navigationOptions = {
+
+EstudiarScreen.navigationOptions = {
   tabBarLabel: 'Estudiar',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -83,7 +80,10 @@ EstudiarStack.navigationOptions = {
       }
     />
   ),
-};
+    };
+    const EstudiarStack = createStackNavigator({
+      EstudiarScreen: EstudiarScreen
+    })
 const CalendarioStack = createStackNavigator({
   Calendario: CalendarioScreen,
   Clase: ClaseScreen,

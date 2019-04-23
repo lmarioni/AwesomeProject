@@ -21,6 +21,7 @@ const styles = StyleSheet.create({
         paddingRight: 2
     },
     subTittle: {
+        justifyContent: "center",
         fontSize: RF(4),
         textAlign: 'center',
         fontWeight: "bold",

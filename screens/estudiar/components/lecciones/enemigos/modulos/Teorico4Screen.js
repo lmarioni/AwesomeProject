@@ -1,8 +1,8 @@
 import { ScrollView, View, Text, Dimensions, Image } from 'react-native';
 import React, { Component } from 'react';
 import styles from "./css/estilo";
-const imagen1 = "https://picsum.photos/500/500/?image=896";
-const imagen2 = "https://picsum.photos/500/500/?image=831";
+const imagen1 = "https://www.axonplataforma.com.ar/images/EnemigosdelAprendizaje01.png";
+const imagen2 = "https://www.axonplataforma.com.ar/images/EnemigosdelAprendizaje02.png";
 export default class Teorico4Screen extends Component {
   static navigationOptions = {
     title: 'Enemigos del Aprendizaje',
@@ -21,7 +21,7 @@ export default class Teorico4Screen extends Component {
   };
   render() {
     let dimensions = Dimensions.get("window");
-    let imageHeight = Math.round((dimensions.width * 10) / 16);
+    let imageHeight = Math.round((dimensions.width * 9) / 16);
     let imageWidth = dimensions.width;
     let mode = 'center';
     return (

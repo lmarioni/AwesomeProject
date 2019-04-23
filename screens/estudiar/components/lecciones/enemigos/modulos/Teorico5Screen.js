@@ -1,8 +1,9 @@
-import { ScrollView, View, Text, Image, Dimensions } from 'react-native';
+import { ScrollView, View, Text, Image, Dimensions, AccessibilityInfo } from 'react-native';
 import React, { Component } from 'react';
 import FitImage from 'react-native-fit-image';
 import styles from "./css/estilo";
-const imagen1 = "https://picsum.photos/500/500/?image=849";
+const imagen1 = "https://www.axonplataforma.com.ar/images/DescubriendoOportunidades01.png";
+const imagen2 = "https://www.axonplataforma.com.ar/images/universo06.png";
 export default class Teorico5Screen extends Component {
   static navigationOptions = {
     title: 'Descubriendo oportunidades',
@@ -21,16 +22,16 @@ export default class Teorico5Screen extends Component {
   };
   render() {
     let dimensions = Dimensions.get("window");
-    let imageHeight = Math.round((dimensions.width * 10) / 16);
+    let imageHeight = Math.round((dimensions.width * 9) / 16);
     let imageWidth = dimensions.width;
     let mode = 'center';
     return (
       <ScrollView contentContainerStyle={styles.otherContentContainer}>
-        <View style={styles.container}>
+        <View accessible={false} style={styles.container}>
           <Text accessible={false} style={styles.subTittleColor}>Descubriendo oportunidades</Text>
           <Image style={{ height: imageHeight, width: imageWidth }} source={{ uri: imagen1 }} resizeMode={mode} />
           <Text accessible={false} style={styles.texto}>Hoy, <Text style={{ fontWeight: 'bold' }}>nuestra sociedad atraviesa una era de globalización</Text>. Hay una mayor comunicación gracias al internet y a su vez, una mayor posibilidad de que a un solo click de búsqueda, encuentres más información de la que esperabas. Un universo con mil y un oportunidades para que amplíes tu visión</Text>
-          <FitImage source={{ uri: 'https://www.axonplataforma.com.ar/images/eda1.png' }} style={styles.fitImage} />
+          <Image style={{ height: imageHeight, width: imageWidth }} source={{ uri: imagen2 }} resizeMode={mode} />
           <Text accessible={false} style={styles.texto}>Sin embargo, en muchas ocasiones preferimos dejar nuestra mente como en la era medieval, pensando que el mundo sólo existe hasta donde nuestros ojos logran ver y que después, hay solo un abismo custodiado por monstruos tenebrosos, sin más que contarnos.{"\n"}{"\n"}
             Eso que logramos ver, es solo un <Text style={{ fontWeight: 'bold' }}>puntito</Text> dentro del universo en el que vivimos. Lo que en el coaching ontológicollamamos nuestra <Text style={{ fontWeight: 'bold' }}>Caja de Creencias</Text>. Dentro de esta caja está:{"\n"}</Text>
           <FitImage source={{ uri: 'https://www.axonplataforma.com.ar/images/enemigosdelaprendizaje-01.png' }} style={styles.fitImage} />

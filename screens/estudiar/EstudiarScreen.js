@@ -12,8 +12,8 @@ import Leccion from './components/Leccion';
 // import console = require('console');
 export default class HomeScreen extends React.Component {
 
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this._getLecciones();
     this.state = {
       data: null,
@@ -21,7 +21,6 @@ export default class HomeScreen extends React.Component {
     }
   }
   componentDidMount(){
-
     fetch('http://api.axontraining.com/lecciones')
     .then((response) => response.json())
     .then((responseJson) => {
@@ -52,6 +51,7 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
+    const {navigate} = this.props.navigation;
     if(this.state.animating == false){
       return ( 
         // <Text>Hola</Text>

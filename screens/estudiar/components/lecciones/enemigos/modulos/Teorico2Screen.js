@@ -2,8 +2,8 @@
 import { ScrollView, View, Text, Image, Dimensions} from 'react-native';
 import React, { Component } from 'react';
 import styles from "./css/estilo";
-const imagen1 = "https://picsum.photos/500/500/?image=777";
-const imagen2 = "https://picsum.photos/500/500/?image=335";
+const imagen1 = "https://www.axonplataforma.com.ar/images/ElAprendizaje01.png";
+const imagen2 = "https://www.axonplataforma.com.ar/images/ElAprendizaje02.png";
 export default class Teorico2Screen extends Component {
   static navigationOptions = {
     title: 'Qué es el Aprendizaje',
@@ -22,7 +22,7 @@ export default class Teorico2Screen extends Component {
   };
   render() {
     let dimensions = Dimensions.get("window");
-    let imageHeight = Math.round((dimensions.width * 10) / 16);
+    let imageHeight = Math.round((dimensions.width * 9) / 16);
     let imageWidth = dimensions.width;
     let mode = 'center';
     return (
@@ -44,8 +44,9 @@ export default class Teorico2Screen extends Component {
               - La sensación de ternura de una madre cuando abraza a su hijo no puede cuantificarse.{"\n"}
               - Las lágrimas de alegría al volver a vernos no caben en una pipeta graduada.{"\n"}
               - Una mirada profunda, el contacto visual de ojos con ojos no puede medirse en centímetros de distancia.</Text>
-              <Text accessible={false} style={styles.subTittleColor}>El Mundo Interior y el aprendizaje actual están en problemas.</Text>
-              <Text accessible={false} style={styles.texto}><Text style={{ fontWeight: 'bold' }}>El Mundo Interno está inmerso en una soledad infinita.</Text>{"\n"}{"\n"}
+              <Text accessible={false} style={styles.texto}>
+              <Text accessible={false} style={styles.subTittleColor}>El Mundo Interior y el aprendizaje actual están en problemas.</Text>{"\n"}{"\n"}
+                <Text style={{ fontWeight: 'bold' }}>El Mundo Interno está inmerso en una soledad infinita.</Text>{"\n"}{"\n"}
               Por alguna de estas razones estás tomando esta carrera. El Coaching Ontológico nace como necesidad de conectar nuevamente esos dos mundos.
               </Text>
           </View>

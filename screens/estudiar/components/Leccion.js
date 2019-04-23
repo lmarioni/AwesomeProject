@@ -9,12 +9,16 @@ import {
 import { Icon } from 'expo';
 
 export default class Leccion extends Component {
+  constructor(props){
+    super(props);
+    console.log(props);
+  }
   render() {
     let imagenHabilitadas = "";
     const { idleccion, nombre, imagen, click, habilitada } = this.props;
     if (habilitada == 1) {
       if (idleccion == 1) {
-        imagenHabilitadas = "https://www.axonplataforma.com.ar/images/Ico-Enemigos.png";
+        imagenHabilitadas = "https://www.axonplataforma.com.ar/images/enemigos.png";
       } else {
         if (idleccion == 2) {
           imagenHabilitadas = "https://www.axonplataforma.com.ar/images/Ico-Ser.png";
