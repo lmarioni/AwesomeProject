@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {ScrollView, StyleSheet, TouchableHighlight, View, Text, Image} from 'react-native';
-
+import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 export default class LeccionScreen extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
         result: 0
     };
@@ -26,6 +26,7 @@ export default class LeccionScreen extends Component {
   getResponse(result){
     this.setState({result});
   }
+  
   render() {
     const {navigate} = this.props.navigation;
     return (
@@ -34,7 +35,7 @@ export default class LeccionScreen extends Component {
         <TouchableHighlight
             style={styles.item}
             underlayColor='#d8d8d8'
-            onPress={() => navigate('VideoExplicativo', {title: 'Video Explicativo'})}
+            onPress={() => this.props.navigation.navigate('VideoExplicativo', {title: 'Video Explicativo'})}
           >
             <View style={styles.contenido}>
               <Image

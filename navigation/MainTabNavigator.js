@@ -5,24 +5,24 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 import TabBarIcon from '../components/TabBarIcon';
 import Home from "../screens/home/Home"
 import EstudiarScreen from '../screens/estudiar/EstudiarScreen';
-  import LeccionScreen from '../screens/estudiar/LeccionScreen';
-  //Estos son de prueba para los modulos de la leccion 1:
-    import VideoExplicativo from '../screens/estudiar/components/lecciones/enemigos/modulos/VideoExplicativo';
-    import Teorico1Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico1Screen';
-    import Teorico2Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico2Screen';
-    import Teorico3Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico3Screen';
-    import Teorico4Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico4Screen';
-    import Teorico5Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico5Screen';
-    import Teorico6Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico6Screen';
-    import Teorico7Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico7Screen';
-    import Teorico8Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico8Screen';
-    import Teorico9Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico9Screen';
-    import Teorico10Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico10Screen';
-    import MaterialLectura from '../screens/estudiar/components/lecciones/enemigos/modulos/MaterialLectura'
-    import Video1 from '../screens/estudiar/components/lecciones/enemigos/modulos/Video1'
-    import Lectura from '../screens/estudiar/components/lecciones/enemigos/modulos/Lectura'
-    import PracticaRepaso from '../screens/estudiar/components/lecciones/enemigos/modulos/PracticaRepaso'
-    import AsentandoConocimiento from '../screens/estudiar/components/lecciones/enemigos/modulos/AsentandoConocimiento'
+import LeccionScreen from '../screens/estudiar/LeccionScreen';
+//Estos son de prueba para los modulos de la leccion 1:
+import VideoExplicativo from '../screens/estudiar/components/lecciones/enemigos/modulos/VideoExplicativo';
+import Teorico1Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico1Screen';
+import Teorico2Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico2Screen';
+import Teorico3Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico3Screen';
+import Teorico4Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico4Screen';
+import Teorico5Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico5Screen';
+import Teorico6Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico6Screen';
+import Teorico7Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico7Screen';
+import Teorico8Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico8Screen';
+import Teorico9Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico9Screen';
+import Teorico10Screen from '../screens/estudiar/components/lecciones/enemigos/modulos/Teorico10Screen';
+import MaterialLectura from '../screens/estudiar/components/lecciones/enemigos/modulos/MaterialLectura'
+import Video1 from '../screens/estudiar/components/lecciones/enemigos/modulos/Video1'
+import Lectura from '../screens/estudiar/components/lecciones/enemigos/modulos/Lectura'
+import PracticaRepaso from '../screens/estudiar/components/lecciones/enemigos/modulos/PracticaRepaso'
+import AsentandoConocimiento from '../screens/estudiar/components/lecciones/enemigos/modulos/AsentandoConocimiento'
 
 
 // import ModulosScreen from '../screens/estudiar/ModulosScreen';
@@ -55,7 +55,7 @@ const Menu = createStackNavigator({
 
 Home.navigationOptions = {
   tabBarLabel: "Home",
-  tabBarIcon: ({focused}) => (
+  tabBarIcon: ({ focused }) => (
     <TabBarIcon
       focused={focused}
       name={
@@ -68,7 +68,23 @@ Home.navigationOptions = {
 };
 const EstudiarStack = createStackNavigator({
   Estudiar: EstudiarScreen,
-  Clase: LeccionScreen
+  Leccion: LeccionScreen,
+  VideoExplicativo: VideoExplicativo,
+  Teorico1Screen: Teorico1Screen,
+  Teorico2Screen: Teorico2Screen,
+  Teorico3Screen: Teorico3Screen,
+  Teorico4Screen: Teorico4Screen,
+  Teorico5Screen: Teorico5Screen,
+  Teorico6Screen: Teorico6Screen,
+  Teorico7Screen: Teorico7Screen,
+  Teorico8Screen: Teorico8Screen,
+  Teorico9Screen: Teorico9Screen,
+  Teorico10Screen: Teorico10Screen,
+  MaterialLectura: MaterialLectura,
+  Video1: Video1,
+  Lectura: Lectura,
+  PracticaRepaso: PracticaRepaso,
+  AsentandoConocimiento: AsentandoConocimiento
 });
 
 EstudiarStack.navigationOptions = {
@@ -117,5 +133,5 @@ export default createBottomTabNavigator({
   Home,
   EstudiarStack,
   CalendarioStack,
-  ProfileStack,
+  ProfileStack
 });

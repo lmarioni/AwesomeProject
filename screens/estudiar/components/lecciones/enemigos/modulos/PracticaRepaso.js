@@ -2,6 +2,7 @@ import RF from "react-native-responsive-fontsize";
 import { Text, View, Animated, StyleSheet } from 'react-native';
 import React, { PureComponent, Component } from 'react';
 import { Card, Icon, Button } from 'react-native-elements';
+import RadioGroup,{Radio} from "react-native-radio-input";
 
 export default class PracticaRepaso extends Component {
   constructor(props) {
@@ -38,16 +39,23 @@ export default class PracticaRepaso extends Component {
       case 2:
         return (
           <React.Fragment>
-            <Text style={styles.textoPreguntas}>¿Qué hay adentro del puntito?</Text>{"\n"}{"\n"}
-            <Text style={styles.paragraph}>Lo que sé y nada más. (Por ejemplo, "sé cocinar", "sé lo que debería hacer mi jefe")</Text>{"\n"}{"\n"}
-            <Text style={styles.textoRespuestas}>Lo que sé y también lo que sé que no sé. (Por ejemplo, “sé cocinar, "sé lo que debería hacer mi jefe", "sé que no sé hablar chino", "sé que no sé de programación informática")</Text>
-            <Text style={styles.textoRespuestas}>Todo lo que no sé que no sé. (Por ejemplo, "lo desconocido")</Text>
+            <Text style={styles.textoPreguntas}>¿Qué hay adentro del puntito?</Text>
+            <RadioGroup getChecked={this.getChecked}>
+              <Radio iconName={"lens"} label={"Lo que sé y nada más. (Por ejemplo, 'sé cocinar', 'sé lo que debería hacer mi jefe')"} value={"A"}/>
+              <Radio iconName={"lens"} label={"Lo que sé y también lo que sé que no sé. (Por ejemplo, “sé cocinar, 'sé lo que debería hacer mi jefe', 'sé que no sé hablar chino', 'sé que no sé de programación informática')"} value={"B"}/>
+              <Radio iconName={"lens"} label={"Todo lo que no sé que no sé. (Por ejemplo, 'lo desconocido')"} value={1}/>
+            </RadioGroup>
           </React.Fragment>
         )
       case 3:
         return (
           <React.Fragment>
-            <Text style={styles.paragraph}>Descubriste lo que, dentro del coaching ontológico llamamos Caja de creencias.</Text>
+            <Text style={styles.textoPreguntas}>El concepto de “la caja” (lo que “no sé que no sé”), desde el Coaching ontológico es interpretado como:</Text>
+            <RadioGroup getChecked={this.getChecked}>
+              <Radio iconName={"lens"} label={'Es una mala noticia saber lo que no va a pasar, porque no tengo certezas y siempre hay que tener certezas. (Por ejemplo, "no voy a sumarme a este nuevo proyecto porque nunca hice algo parecido")'} value={"A"}/>
+              <Radio iconName={"lens"} label={'Es un camino de incertidumbre, que no es ni buena ni mala noticia. Radica en cada uno cómo ve esa incertidumbre. (Por ejemplo, "como nunca lo hice no sé lo que va a pasar, voy a probar")'} value={"B"}/>
+              <Radio iconName={"lens"} label={'Siempre debemos tener certezas, por lo que no es acertado elegir un camino de incertidumbre. (Por ejemplo, "cómo voy a realizar el siguiente proyecto si no tengo certezas de que va a funcionar")'} value={1}/>
+            </RadioGroup>
           </React.Fragment>
         )
       case 4:
@@ -171,10 +179,13 @@ export default class PracticaRepaso extends Component {
     return (
       <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center', paddingTop: 40, backgroundColor: 'white' }}>
         <Card title={this.state.titulo} style={{ border: 2 }}>
-          <Animated.Text style={{ ...this.props.style, opacity: fadeAnim, margin: 24, fontSize: 18, fontWeight: 'bold', textAlign: 'center', color: '#34495e' }}>
-            {/*Ya casi has finalizado esta lección! Pero antes, repasemos un poco lo aprendido:*/}
+        <Animated.View style={{ ...this.props.style, opacity: fadeAnim, fontSize: 18, fontWeight: 'bold', textAlign: 'center', color: '#34495e'}}>
+          {this.mostrarTarjeta()}
+        </Animated.View>
+          {/*<Animated.Text style={{ ...this.props.style, opacity: fadeAnim, margin: 24, fontSize: 18, fontWeight: 'bold', textAlign: 'center', color: '#34495e'}}>
+            {}
             {this.mostrarTarjeta()}
-          </Animated.Text>
+    </Animated.Text>*/}
           <View style={{ flex: 2, flexDirection: 'row', justifyContent: 'space-between' }}>
             <Button icon={<Icon type='font-awesome' name='arrow-circle-left' color='#ffffff' />} backgroundColor='#0081C4' buttonStyle={{ borderRadius: 5, marginLeft: 5, marginRight: 5, marginBottom: 0, width: 150 }} title=' Anterior' onPress={this._onPress} />
             <Button icon={<Icon type='font-awesome' name='arrow-circle-right' color='#ffffff' />} backgroundColor='#0081C4' buttonStyle={{ borderRadius: 5, marginLeft: 5, marginRight: 5, marginBottom: 0, width: 150 }} title=' Siguiente' onPress={this._onPress} />
@@ -203,13 +214,12 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     fontWeight: '100',
     backgroundColor: '#fff',
-    width: "100%",
     marginTop: 10,
     marginBottom: 10,
-    padding: 10,
+    padding: 5/*,
     borderColor: '#d8d8d8',
     borderRadius: 5,
-    borderWidth: 6,
+    borderWidth: 6,*/
   },
   textoPreguntas: {
     fontSize: RF(3),
