@@ -9,7 +9,6 @@ import {
 
 import LoadingEstudiar from './components/LoadingEstudiar';
 import Leccion from './components/Leccion';
-// import console = require('console');
 export default class HomeScreen extends React.Component {
 
   constructor(props) {

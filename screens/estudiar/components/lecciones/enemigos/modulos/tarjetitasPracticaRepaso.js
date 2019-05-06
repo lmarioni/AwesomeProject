@@ -1,55 +1,21 @@
 import RF from "react-native-responsive-fontsize";
-import { Text, View, Animated, StyleSheet, ScrollView, FlatList, TouchableOpacity } from 'react-native';
-import React, { Component } from 'react';
+import { Text, View, Animated, StyleSheet, ScrollView } from 'react-native';
+import React, { PureComponent, Component } from 'react';
+import ReactDOM from 'react-dom';
+import { useSprings, animated, interpolate } from 'react-spring';
+import { useGesture } from 'react-use-gesture';
 import { Card, Icon, Button } from 'react-native-elements';
 import RadioGroup,{Radio} from "react-native-radio-input";
 
 export default class PracticaRepaso extends Component {
-  constructor(props){
-    super(props);
-    this.state.titulo = "Bienvenido",
-    this.state.step = 1,
-    //this.state ={ isLoading: true},
-    dataSource = []
+  constructor(props) {
+    super(props)
+    this.state.titulo = "Bienvenido"
   }
   state = {
     fadeAnim: new Animated.Value(1),  // Initial value for opacity: 0,
     step: 1
   }
-  async componentDidMount(){
-    return fetch('https://api.axontraining.com/lecciones/evaluaciones/17')
-      .then((response) => response.json())
-      .then((responseJson) => {
-        this.setState({
-          isLoading: false,
-          dataSource: responseJson,
-        }, function(){
-        });
-      })
-      .catch((error) =>{
-        console.error(error);
-      });
-  }
-  FlatListItemSeparator = () => {
-    return (
-      <View style={{
-        height: .5,
-        width:"100%",
-        backgroundColor:"rgba(0,0,0,0.5)"}}
-      />
-    );
-  }
-  renderItem=(data)=>
-<TouchableOpacity style={styles.list}>
-<Text style={styles.lightText}>{data.item.id}</Text>
-<Text style={styles.lightText}>{data.item.numero}</Text>
-<Text style={styles.lightText}>{data.item.descripcion}</Text>
-  {
-    data.item.respuestas.map(evaluacion=>(
-      <Text key={evaluacion.id} style={styles.lightText}>{evaluacion.opcionAbierta}</Text>
-    ))
-  }
-</TouchableOpacity>
   static navigationOptions = {
     title: 'Práctica de repaso',
     headerStyle: {
@@ -274,21 +240,15 @@ export default class PracticaRepaso extends Component {
     return (
       <ScrollView>
         <View style={styles.container}>
-        <FlatList
-    data= {this.state.dataSource}
-    ItemSeparatorComponent = {this.FlatListItemSeparator}
-    renderItem= {item=> this.renderItem(item)}
-    keyExtractor= {item=>item.id.toString()}
- />
-          {/*<Card title={this.state.titulo} style={{flex: 1, flexDirection: "column", justifyContent: 'space-between'/* flex: 1,border: 2, width: "100%", height: "100%"}}>
-            <Animated.View style={{/* ...this.props.style, flex: 1, width: "100%", height: "100%", opacity: fadeAnim, fontSize: 18, fontWeight: 'bold', textAlign: 'center', color: '#34495e', flex: 1, alignItems: "center", flexDirection:"column", justifyContent: 'space-between'}}>
+          <Card title={this.state.titulo} style={{flex: 1, flexDirection: "column", justifyContent: 'space-between'/* flex: 1,border: 2, width: "100%", height: "100%"*/}}>
+            <Animated.View style={{/* ...this.props.style, flex: 1, width: "100%", height: "100%", opacity: fadeAnim, fontSize: 18, fontWeight: 'bold', textAlign: 'center', color: '#34495e', flex: 1, alignItems: "center", flexDirection:"column", justifyContent: 'space-between'*/}}>
               {this.mostrarTarjeta()}
             </Animated.View>
           </Card>
           <View style={{alignItems: "center", justifyContent: 'center', flexDirection: 'row' }}>
               <Button icon={<Icon type='font-awesome' name='arrow-circle-left' color='#ffffff' />} backgroundColor='#0081C4' buttonStyle={{ borderRadius: 5, marginLeft: 5, marginRight: 5, marginBottom: 0, width: 150 }} title=' Anterior' onPress={this._onPress} />
               <Button icon={<Icon type='font-awesome' name='arrow-circle-right' color='#ffffff' />} backgroundColor='#0081C4' buttonStyle={{ borderRadius: 5, marginLeft: 5, marginRight: 5, marginBottom: 0, width: 150 }} title=' Siguiente' onPress={this._onPress} />
-    </View>*/}
+            </View>
         </View>
       </ScrollView>
     );

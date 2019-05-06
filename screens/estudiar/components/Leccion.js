@@ -15,7 +15,6 @@ export default class Leccion extends Component {
   render() {
     let imagenHabilitadas = "";
     const { idleccion, nombre, imagen, click, habilitada } = this.props;
-    console.log(click);
     if (habilitada == 1) {
       if (idleccion == 1) {
         imagenHabilitadas = "https://www.axonplataforma.com.ar/images/enemigos.png";

@@ -1,8 +1,8 @@
 import RF from "react-native-responsive-fontsize";
+import { Text, View, Animated, StyleSheet } from 'react-native';
 import React, { Component } from 'react';
-import PropTypes from 'prop-types'
-import { Text, View, Fragment, StyleSheet, Animated, Image } from 'react-native';
 import { Card, Icon, Button } from 'react-native-elements';
+import RadioGroup,{Radio} from "react-native-radio-input";
 
 export default class AsentandoConocimiento extends Component {
   constructor(props) {
