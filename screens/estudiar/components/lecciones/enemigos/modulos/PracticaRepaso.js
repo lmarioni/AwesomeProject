@@ -23,12 +23,16 @@ export default class PracticaRepaso extends Component {
         this.setState({
           isLoading: false,
           dataSource: responseJson,
+          eleccion: 1
         }, function(){
         });
       })
       .catch((error) =>{
         console.error(error);
       });
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log("ENTRO "+this.state.eleccion);
   }
   FlatListItemSeparator = () => {
     return (
@@ -65,14 +69,28 @@ export default class PracticaRepaso extends Component {
     },
     headerTintColor: "white"
   };
-  mostrarTarjeta = () => {
-    switch (this.state.step) {
-      case 1:
-        return (
-          <React.Fragment>
-            <Text style={styles.paragraph}>Respondé las preguntas para saber cuánto aprendiste de la lección. Recordá que si salís de la evaluación antes de terminar todas las preguntas, tu progreso se guardará y lo podras seguir luego.</Text>
-          </React.Fragment>
-        )
+  mostrarTarjeta = (data, eleccion) => {
+    if(!data){
+      console.log("Está cargando");
+    }else{
+      switch(eleccion){
+        case 1:
+          return (
+            <React.Fragment>
+              <Text style={styles.paragraph}>Respondé las preguntas para saber cuánto aprendiste de la lección. Recordá que si salís de la evaluación antes de terminar todas las preguntas, tu progreso se guardará y lo podras seguir luego.</Text>
+            </React.Fragment>
+          )
+        break;
+        case 2:
+            console.log(this.state.eleccion);
+        break;
+      }
+      data.map(evaluacion=>(
+        evaluacion.respuestas.map(respuesta=>(console.log(evaluacion)))
+      ))
+    }   
+    /*switch (eleccion) {
+      
       case 2:
         return (
           <React.Fragment>
@@ -183,7 +201,7 @@ export default class PracticaRepaso extends Component {
                 </RadioGroup>
               </React.Fragment>
             );
-    }
+    }*/
   }
   prevStep = () => {
     this.setState({ step: this.state.step - 1 })
@@ -274,21 +292,21 @@ export default class PracticaRepaso extends Component {
     return (
       <ScrollView>
         <View style={styles.container}>
-        <FlatList
+        {/*<FlatList
     data= {this.state.dataSource}
     ItemSeparatorComponent = {this.FlatListItemSeparator}
     renderItem= {item=> this.renderItem(item)}
     keyExtractor= {item=>item.id.toString()}
- />
-          {/*<Card title={this.state.titulo} style={{flex: 1, flexDirection: "column", justifyContent: 'space-between'/* flex: 1,border: 2, width: "100%", height: "100%"}}>
-            <Animated.View style={{/* ...this.props.style, flex: 1, width: "100%", height: "100%", opacity: fadeAnim, fontSize: 18, fontWeight: 'bold', textAlign: 'center', color: '#34495e', flex: 1, alignItems: "center", flexDirection:"column", justifyContent: 'space-between'}}>
-              {this.mostrarTarjeta()}
+        />*/}
+          <Card title={this.state.titulo} style={{flex: 1, flexDirection: "column", justifyContent: 'space-between'/* flex: 1,border: 2, width: "100%", height: "100%"*/}}>
+            <Animated.View style={{/* ...this.props.style, flex: 1, width: "100%", height: "100%", opacity: fadeAnim, fontSize: 18, fontWeight: 'bold', textAlign: 'center', color: '#34495e', flex: 1, alignItems: "center", flexDirection:"column", justifyContent: 'space-between'*/}}>
+              {this.mostrarTarjeta(this.state.dataSource, 1)}
             </Animated.View>
           </Card>
           <View style={{alignItems: "center", justifyContent: 'center', flexDirection: 'row' }}>
-              <Button icon={<Icon type='font-awesome' name='arrow-circle-left' color='#ffffff' />} backgroundColor='#0081C4' buttonStyle={{ borderRadius: 5, marginLeft: 5, marginRight: 5, marginBottom: 0, width: 150 }} title=' Anterior' onPress={this._onPress} />
-              <Button icon={<Icon type='font-awesome' name='arrow-circle-right' color='#ffffff' />} backgroundColor='#0081C4' buttonStyle={{ borderRadius: 5, marginLeft: 5, marginRight: 5, marginBottom: 0, width: 150 }} title=' Siguiente' onPress={this._onPress} />
-    </View>*/}
+            <Button icon={<Icon type='font-awesome' name='arrow-circle-left' color='#ffffff' />} backgroundColor='#0081C4' buttonStyle={{ borderRadius: 5, marginLeft: 5, marginRight: 5, marginBottom: 0, width: 150 }} title=' Anterior' onPress={this._onPress} />
+            <Button icon={<Icon type='font-awesome' name='arrow-circle-right' color='#ffffff' />} backgroundColor='#0081C4' buttonStyle={{ borderRadius: 5, marginLeft: 5, marginRight: 5, marginBottom: 0, width: 150 }} title=' Siguiente' onPress={this._onPress} />
+          </View>
         </View>
       </ScrollView>
     );
