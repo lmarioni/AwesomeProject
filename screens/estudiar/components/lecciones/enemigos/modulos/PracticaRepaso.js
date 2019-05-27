@@ -3,46 +3,88 @@ import {
   Text,
   View,
   Animated,
+  ActivityIndicator,
   StyleSheet,
   ScrollView,
-  FlatList,
+  AsyncStorage,
   TouchableOpacity,
   Alert
 } from "react-native";
 import React, { Component } from "react";
 import { Card, Icon, Button } from "react-native-elements";
 import RadioGroup, { Radio } from "react-native-radio-input";
+import Modal from "react-native-modalbox";
+import axios from "axios";
 
 export default class PracticaRepaso extends Component {
   constructor(props) {
     super(props);
-    (this.state.titulo = "Bienvenido"),
-      (this.state.step = 1),
-      //this.state ={ isLoading: true},
-      (dataSource = []);
   }
   state = {
     fadeAnim: new Animated.Value(1), // Initial value for opacity: 0,
     step: 1,
-    idCarta: 7,
+    indexCarta: null,
+    titulo: "",
+    dataSource: null,
     evaluaciones: [],
-    radioRes: ""
+    radioRes: "",
+    isOpen: false,
+    isDisabled: false,
+    swipeToClose: true,
+    sliderValue: 0.3,
+    animating: true,
+    bienvenido: false
   };
   async componentDidMount() {
-    return fetch("https://api.axontraining.com/lecciones/evaluaciones/17")
-      .then(response => response.json())
-      .then(responseJson => {
-        this.setState(
-          {
-            isLoading: false,
-            dataSource: responseJson,
-            eleccion: 1
-          },
-          function() {}
-        );
-      })
-      .catch(error => {
-        console.error(error);
+    const sesion = await AsyncStorage.getItem("sesion");
+    this.setState({
+      nombreUsuario: JSON.parse(sesion).nombre
+    });
+    axios
+      .get("https://api.axontraining.com/lecciones/evaluaciones/17")
+      .then(res => {
+        this.setState({
+          dataSource: res.data.preguntas,
+          eleccion: 1
+        });
+      });
+    axios
+      .get(
+        "https://api.axontraining.com/alumnos/" +
+          JSON.parse(sesion).id +
+          "/evaluaciones/17/estado"
+      )
+      .then(res => {
+        if (res.data.length) {
+          this.setState({
+            animating: false
+          });
+
+          if (res.data.length - 1 === 9) {
+            axios
+              .get(
+                "https://api.axontraining.com/alumnos/" +
+                  JSON.parse(sesion).id +
+                  "/evaluaciones/17/nota"
+              )
+              .then(res => {
+                this.setState({
+                  calificacion: res.data.nota
+                });
+                this.refs.modal3.open();
+              });
+          } else {
+            this.setState({
+              indexCarta: res.data.length,
+              titulo: res.data.length + 1
+            });
+          }
+        } else {
+          this.setState({
+            bienvenido: true,
+            animating: false
+          });
+        }
       });
   }
   componentDidUpdate(prevProps, prevState) {
@@ -86,32 +128,6 @@ export default class PracticaRepaso extends Component {
     },
     headerTintColor: "white"
   };
-  mostrarTarjeta = (data, eleccion) => {
-    if (!data) {
-      console.log("Está cargando");
-    } else {
-      switch (eleccion) {
-        case 1:
-          return (
-            <React.Fragment>
-              <Text style={styles.paragraph}>
-                Respondé las preguntas para saber cuánto aprendiste de la
-                lección. Recordá que si salís de la evaluación antes de terminar
-                todas las preguntas, tu progreso se guardará y lo podras seguir
-                luego.
-              </Text>
-            </React.Fragment>
-          );
-          break;
-        case 2:
-          console.log(this.state.eleccion);
-          break;
-      }
-      data.map(evaluacion =>
-        evaluacion.respuestas.map(respuesta => console.log(evaluacion))
-      );
-    }
-  };
   prevStep = () => {
     this.setState({ step: this.state.step - 1 });
   };
@@ -125,51 +141,65 @@ export default class PracticaRepaso extends Component {
         "",
         [
           {
-            text: "Cancel",
-            onPress: () => console.log("Cancel Pressed"),
+            text: "Cancelar",
             style: "cancel"
           },
-          { text: "OK", onPress: () => console.log("OK Pressed") }
+          { text: "Aceptar" }
         ],
         { cancelable: false }
       );
-    } else if (this.state.idCarta <= this.state.dataSource.length - 1) {
-      console.log("EMPIEZA " + this.state.idCarta);
+    } else if (this.state.indexCarta <= this.state.dataSource.length - 1) {
       await this.setState({
         evaluaciones: [
           ...this.state.evaluaciones,
           {
-            id: this.state.dataSource[this.state.idCarta].id,
+            id: this.state.dataSource[this.state.indexCarta].id,
             respuesta: this.state.radioRes
           }
         ]
       });
-      if (this.state.idCarta === this.state.dataSource.length - 1) {
-        fetch("http://192.168.1.103:80/api/lecciones/correcion", {
-          method: "POST",
-          headers: {
-            Accept: "application/json",
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify(this.state.evaluaciones)
-        })
-          .then(response => response.json())
-          .then(responseJson => {
-            console.log(responseJson);
-          });
+      if (this.state.indexCarta < this.state.dataSource.length - 1) {
+        this.setState({
+          indexCarta: this.state.indexCarta + 1,
+          radioRes: ""
+        });
       }
-      if (this.state.idCarta < this.state.dataSource.length - 1) {
-        this.setState(
+      // guarda el estado de la evaluacion
+      /* const sesion = await AsyncStorage.getItem("sesion");
+      axios
+        .post(
+          "https://api.axontraining.com/alumnos/" +
+            JSON.parse(sesion).id +
+            "/evaluaciones/17/estado",
           {
-            idCarta: this.state.idCarta + 1,
-            radioRes: ""
-          },
-          () => {
-            console.log("AUMENTA " + this.state.idCarta);
+            pregunta: {
+              id: this.state.dataSource[this.state.indexCarta].id,
+              numero: this.state.dataSource[this.state.indexCarta].numero,
+              respuesta: this.state.radioRes
+            }
           }
-        );
-      }
-
+        )
+        .then(res => {
+          if (this.state.indexCarta === 9) {
+            axios
+              .post(
+                "https://api.axontraining.com/alumnos/" +
+                  JSON.parse(sesion).id +
+                  "/evaluaciones/17/nota",
+                {
+                  //idPregunta: this.state.dataSource[this.state.indexCarta].id,
+                  respuestas: this.state.evaluaciones
+                }
+              )
+              .then(res => {
+                console.log(res.data);
+                this.setState({
+                  calificacion: res.data
+                });
+                this.refs.modal3.open();
+              });
+          }
+        }); */
       // Animate the update
       Animated.spring(
         // Animate over time
@@ -191,29 +221,6 @@ export default class PracticaRepaso extends Component {
         ).start();
       }, 1000); // Starts the animation
     }
-    if (this.state.idCarta == this.state.dataSource.length - 1) {
-      //console.log(this.state.form);
-      /* fetch("http://192.168.1.103:80/api/lecciones/correcion", {
-        method: "POST",
-        headers: {
-          Accept: "application/json",
-          "Content-Type": "application/json"
-        },
-        body: {
-          form: this.state.form
-        }
-      }); */
-      /* return fetch("http://192.168.1.103:80/api/lecciones/correcion",
-      
-      )
-        .then(response => response.json())
-        .then(responseJson => {
-          console.log(responseJson);
-        })
-        .catch(error => {
-          console.error(error);
-        }); */
-    }
   };
   getChecked = value => {
     this.setState({
@@ -223,106 +230,160 @@ export default class PracticaRepaso extends Component {
   render() {
     let { fadeAnim } = this.state;
     return (
-      <ScrollView>
-        <View style={styles.container}>
-          {/*<FlatList
-    data= {this.state.dataSource}
-    ItemSeparatorComponent = {this.FlatListItemSeparator}
-    renderItem= {item=> this.renderItem(item)}
-    keyExtractor= {item=>item.id.toString()}
-        />*/}
-          <Card
-            title={this.state.titulo}
-            style={{
-              flex: 1,
-              flexDirection: "column",
-              justifyContent:
-                "space-between" /* flex: 1,border: 2, width: "100%", height: "100%"*/
-            }}
-          >
-            <Animated.View
-              style={
-                {
-                  /* ...this.props.style, flex: 1, width: "100%", height: "100%", opacity: fadeAnim, fontSize: 18, fontWeight: 'bold', textAlign: 'center', color: '#34495e', flex: 1, alignItems: "center", flexDirection:"column", justifyContent: 'space-between'*/
-                }
-              }
-            >
-              <React.Fragment>
-                <Text style={styles.textoPreguntas}>
-                  {this.state.dataSource &&
-                    this.state.dataSource[this.state.idCarta].descripcion}
-                </Text>
-                <RadioGroup
-                  getChecked={this.getChecked}
-                  RadioStyle={{ marginRight: 25 }}
-                  labelStyle={{ fontSize: 14, padding: 5 }}
-                >
-                  {this.state.dataSource &&
-                    this.state.dataSource[this.state.idCarta].respuestas.map(
-                      (respuesta, key) => (
-                        <Radio
-                          key={key}
-                          iconName={"lens"}
-                          label={respuesta.opcionAbierta}
-                          value={JSON.stringify({
-                            id: respuesta.id,
-                            opcionCorrecta: respuesta.opcionCorrecta
-                          })}
+      <React.Fragment>
+        <ScrollView>
+          <View style={styles.container}>
+            {this.state.dataSource !== null ? (
+              this.state.indexCarta !== null ? (
+                <React.Fragment>
+                  <Card
+                    title={
+                      "Pregunta N°" +
+                      this.state.dataSource[this.state.indexCarta].numero
+                    }
+                    style={{
+                      flex: 1,
+                      flexDirection: "column",
+                      justifyContent: "space-between"
+                    }}
+                  >
+                    <Animated.View>
+                      <Text style={styles.textoPreguntas}>
+                        {
+                          this.state.dataSource[this.state.indexCarta]
+                            .descripcion
+                        }
+                      </Text>
+                      <RadioGroup
+                        getChecked={this.getChecked}
+                        RadioStyle={{
+                          marginRight: 25
+                        }}
+                        labelStyle={{ fontSize: 14, padding: 5 }}
+                      >
+                        {this.state.dataSource[
+                          this.state.indexCarta
+                        ].respuestas.map((respuesta, key) => (
+                          <Radio
+                            key={key}
+                            iconName={"lens"}
+                            label={respuesta.opcionAbierta}
+                            value={JSON.stringify({
+                              id: respuesta.id,
+                              opcionCorrecta: respuesta.opcionCorrecta
+                            })}
+                          />
+                        ))}
+                      </RadioGroup>
+                    </Animated.View>
+                  </Card>
+                  <View
+                    style={{
+                      alignItems: "center",
+                      justifyContent: "center",
+                      flexDirection: "row",
+                      marginTop: "10%"
+                    }}
+                  >
+                    <Button
+                      icon={
+                        <Icon
+                          type="font-awesome"
+                          name="arrow-circle-right"
+                          color="#ffffff"
                         />
-                      )
-                    )}
-                </RadioGroup>
+                      }
+                      backgroundColor="#0081C4"
+                      buttonStyle={{
+                        borderRadius: 5,
+                        marginLeft: 5,
+                        marginRight: 5,
+                        marginBottom: 0,
+                        width: 300
+                      }}
+                      title=" Siguiente"
+                      onPress={this._onPress}
+                    />
+                  </View>
+                </React.Fragment>
+              ) : null
+            ) : null}
+            {this.state.bienvenido && (
+              <React.Fragment>
+                <Card
+                  title={"Bienvenido " + this.state.nombreUsuario}
+                  style={{
+                    flex: 1,
+                    flexDirection: "column",
+                    justifyContent: "space-between"
+                  }}
+                >
+                  <Animated.View>
+                    <Text style={styles.paragraph}>
+                      {
+                        "Por favór, respondé las siguientes preguntas. Recordá que si salís de la evaluación antes de terminar todas las preguntas, tu progreso se guardará y lo podras seguir luego."
+                      }
+                    </Text>
+                  </Animated.View>
+                </Card>
+                <View
+                  style={{
+                    alignItems: "center",
+                    justifyContent: "center",
+                    flexDirection: "row",
+                    marginTop: "10%"
+                  }}
+                >
+                  <Button
+                    icon={
+                      <Icon
+                        type="font-awesome"
+                        name="arrow-circle-right"
+                        color="#ffffff"
+                      />
+                    }
+                    backgroundColor="#0081C4"
+                    buttonStyle={{
+                      borderRadius: 5,
+                      marginLeft: 5,
+                      marginRight: 5,
+                      marginBottom: 0,
+                      width: 300
+                    }}
+                    title=" Empezar"
+                    onPress={() =>
+                      this.setState({ indexCarta: 0, bienvenido: false })
+                    }
+                  />
+                </View>
               </React.Fragment>
-            </Animated.View>
-          </Card>
-          <View
-            style={{
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "row"
-            }}
-          >
-            <Button
-              icon={
-                <Icon
-                  type="font-awesome"
-                  name="arrow-circle-left"
-                  color="#ffffff"
-                />
-              }
-              backgroundColor="#0081C4"
-              buttonStyle={{
-                borderRadius: 5,
-                marginLeft: 5,
-                marginRight: 5,
-                marginBottom: 0,
-                width: 150
-              }}
-              title=" Anterior"
-              onPress={this._onPress}
-            />
-            <Button
-              icon={
-                <Icon
-                  type="font-awesome"
-                  name="arrow-circle-right"
-                  color="#ffffff"
-                />
-              }
-              backgroundColor="#0081C4"
-              buttonStyle={{
-                borderRadius: 5,
-                marginLeft: 5,
-                marginRight: 5,
-                marginBottom: 0,
-                width: 150
-              }}
-              title=" Siguiente"
-              onPress={this._onPress}
-            />
+            )}
           </View>
-        </View>
-      </ScrollView>
+          <ActivityIndicator
+            animating={this.state.animating}
+            color="#bc2b78"
+            size="large"
+            style={styles.spinner}
+          />
+        </ScrollView>
+
+        <Modal
+          style={[styles.modal, styles.modal3]}
+          onClosed={() => this.props.navigation.navigate("Leccion", {})}
+          position={"center"}
+          ref={"modal3"}
+          isDisabled={this.state.isDisabled}
+        >
+          <Text style={styles.calificacion}>
+            {"Tu Calificacion es: " + this.state.calificacion}
+          </Text>
+          <Button
+            onPress={() => this.props.navigation.navigate("Leccion", {})}
+            title={"Aceptar"}
+            style={styles.btn}
+          />
+        </Modal>
+      </React.Fragment>
     );
   }
 }
@@ -334,13 +395,15 @@ const styles = StyleSheet.create({
     paddingRight: 2
   },
   container: {
-    /*flex: 1,
-    justifyContent: "flex-start",
-    alignSelf: "stretch",
-    backgroundColor: 'transparent',*/
     flex: 1,
-    flexDirection: "column"
-    //flexDirection: 'row'
+    justifyContent: "center",
+    alignSelf: "stretch",
+    backgroundColor: "transparent",
+    width: null,
+    height: null
+
+    /* flex: 1,
+    flexDirection: "column" */
   },
   contentContainer: {
     backgroundColor: "#fff",
@@ -380,5 +443,21 @@ const styles = StyleSheet.create({
     padding: 10,
     borderWidth: 1,
     borderColor: "black"
+  },
+  modal: {
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  modal3: {
+    height: 100,
+    width: 300
+  },
+  calificacion: {
+    paddingBottom: "5%",
+    fontSize: RF(3),
+    fontWeight: "bold"
+  },
+  spinner: {
+    paddingBottom: "50%"
   }
 });

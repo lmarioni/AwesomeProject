@@ -1,12 +1,7 @@
-import React, { Component } from 'react';
-import {
-  Text,
-  View,
-  StyleSheet,
-  Button
-} from 'react-native';
-import {Agenda} from 'react-native-calendars';
-import { WebBrowser } from 'expo';
+import React, { Component } from "react";
+import { Text, View, StyleSheet, Button } from "react-native";
+import { Agenda } from "react-native-calendars";
+import { WebBrowser } from "expo";
 
 export default class AgendaScreen extends Component {
   constructor(props) {
@@ -18,40 +13,39 @@ export default class AgendaScreen extends Component {
   }
 
   static navigationOptions = {
-    title: 'Calendario',
+    title: "Calendario",
     headerStyle: {
-      backgroundColor: '#0081C4',
-      borderBottomColor: 'white',
-      borderBottomWidth: 3,
+      backgroundColor: "#0081C4",
+      borderBottomColor: "white",
+      borderBottomWidth: 3
     },
     headerTitleStyle: {
-      color: 'white'
+      color: "white"
     },
-    backButton:{
+    backButton: {
       color: "white"
     }
   };
-  
-  componentDidMount(){
-   // http://axonplataforma.com.ar/leccion_json.php
-    fetch('http://axonplataforma.com.ar/leccion_json.php')
-        .then((response) => response.json())
-        .then((responseJson) => {
-          console.log(responseJson);//prueba
-          this.setState({
-            items: responseJson
-          })
-        })
-    console.log(this.state.items);
-  }
 
+  componentDidMount() {
+    // http://axonplataforma.com.ar/leccion_json.php
+    fetch("http://axonplataforma.com.ar/leccion_json.php")
+      .then(response => response.json())
+      .then(responseJson => {
+        //console.log(responseJson);//prueba
+        this.setState({
+          items: responseJson
+        });
+      });
+    //console.log(this.state.items);
+  }
 
   render() {
     return (
       <Agenda
-      items={this.state.items}
+        items={this.state.items}
         // loadItemsForMonth={this.loadItems.bind(this)}
-        selected={'2019-02-16'}
+        selected={"2019-02-16"}
         renderItem={this.renderItem.bind(this)}
         renderEmptyDate={this.renderEmptyDate.bind(this)}
         rowHasChanged={this.rowHasChanged.bind(this)}
@@ -65,8 +59,8 @@ export default class AgendaScreen extends Component {
         //    '2017-05-24': {startingDay: true, color: 'gray'},
         //    '2017-05-25': {color: 'gray'},
         //    '2017-05-26': {endingDay: true, color: 'gray'}}}
-         // monthFormat={'yyyy'}
-         theme={{ agendaKnobColor: '#1E90FF'}}
+        // monthFormat={'yyyy'}
+        theme={{ agendaKnobColor: "#1E90FF" }}
         // renderDay={(day, item) => (<Text>{day ? <Text style={{color:'red'}}>{day.day}</Text>: 'item'}</Text>)}
       />
     );
@@ -102,26 +96,31 @@ export default class AgendaScreen extends Component {
 
   renderItem(item) {
     return (
-      <View style={[styles.item, {height: item.height}]}>
-      <Text>
-        <Text style={{color:'red'}}>{item.hinicio}</Text>- {item.nombre}
+      <View style={[styles.item, { height: item.height }]}>
+        <Text>
+          <Text style={{ color: "red" }}>{item.hinicio}</Text>- {item.nombre}
         </Text>
-        <Text style={{fontStyle:'italic'}}>
-         {item.profesor}
-        </Text>
-        { item.link !== null ? <Button 
-                                  title="Ver"
-                                  onPress={ () => { 
-                                    this.props.navigation.navigate('Clase')
-                                   } } /> : <Text></Text> }
+        <Text style={{ fontStyle: "italic" }}>{item.profesor}</Text>
+        {item.link !== null ? (
+          <Button
+            title="Ver"
+            onPress={() => {
+              this.props.navigation.navigate("Clase");
+            }}
+          />
+        ) : (
+          <Text />
+        )}
       </View>
     );
   }
   //http://www.axonplataforma.com.ar/vimeo.php?id=MTIzMTE=
- 
+
   renderEmptyDate() {
     return (
-      <View style={styles.emptyDate}><Text>Hoy no hay ninguna clase para ti!</Text></View>
+      <View style={styles.emptyDate}>
+        <Text>Hoy no hay ninguna clase para ti!</Text>
+      </View>
     );
   }
 
@@ -131,13 +130,13 @@ export default class AgendaScreen extends Component {
 
   timeToString(time) {
     const date = new Date(time);
-    return date.toISOString().split('T')[0];
+    return date.toISOString().split("T")[0];
   }
 }
 
 const styles = StyleSheet.create({
   item: {
-    backgroundColor: 'white',
+    backgroundColor: "white",
     flex: 1,
     borderRadius: 5,
     padding: 10,
@@ -146,11 +145,10 @@ const styles = StyleSheet.create({
   },
   emptyDate: {
     height: 15,
-    flex:1,
+    flex: 1,
     paddingTop: 30
   }
 });
-
 
 /*
 
